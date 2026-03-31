@@ -1,2 +1,2 @@
-# TJ_ROBOT_MarvinMAX_SDK
+# TJ_ROBOT_MARVIN_SDK
 Tianji Humanoid Robot Open Source Materials
