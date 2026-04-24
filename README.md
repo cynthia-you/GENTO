@@ -1,2 +1,7 @@
-# TJ_ROBOT_MARVIN_SDK
-Tianji Humanoid Robot Open Source Materials
+# TJ GENTO robot repo
+
+## c/c++ SDK
+
+## python SDK
+
+## ui
