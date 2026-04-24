@@ -1,0 +1,10 @@
+
+//  L1   windows下c++调用源码测试控制库，不编译为库 
+ g++ -w main.cpp ./L0Control/*.cpp ./FileClient/*.cpp ./Kinematics/*.cpp ./L1Robot/L1Robot.cpp -I./Common -I./Kinematics -I./FileClient -I./L0Control -I./L1Robot  -o main.exe -lws2_32 -lwinmm -DCMPL_WIN -DL1_SDK_EXPORTS -DCONTROL_SDK_API
+
+//  L1   linxu下c++调用源码测试控制库，不编译为库 
+g++ -w main.cpp ./L0Control/*.cpp ./FileClient/*.cpp ./L1Robot/L1Robot.cpp -I./FileClient -I./Common -I./L0Control -I./L1Robot -o main -DCMPL_LIN -lrt -DL1_SDK_EXPORTS
+
+
+//L1 dll
+g++ ./L0Control/*.cpp ./FileClient/*.cpp ./Kinematics/*.cpp ./L1Robot/L1Robot.cpp -w -O2 -shared -I./Common -I./Kinematics -I./FileClient -I./L0Control -I./L1Robot -o libGentoSDKPY.dll -DL1_SDK_EXPORTS -DCONTROL_SDK_API -DCMPL_WIN -static -static-libgcc -static-libstdc++ -lws2_32 -lwinmm
