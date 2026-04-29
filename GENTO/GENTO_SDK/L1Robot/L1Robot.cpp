@@ -1247,7 +1247,7 @@ int FX_L1_State_SwitchToImpForceMode(FXObjType obj_type, unsigned int timeout, d
         force_ctrl[FX_FORCE_DISTANCE] = 0;
     }
 
-    double torque_dir_vector_len = torque_ctrl[FX_FORCE_DIR_X] * torque_ctrl[FX_FORCE_DIR_X] + torque_ctrl[FX_FORCE_DIR_Y] * torque_ctrl[FX_FORCE_DIR_Y] + torque_ctrl[FX_FORCE_DIR_Z] * torque_ctrl[FX_FORCE_DIR_Z];
+     double torque_dir_vector_len = torque_ctrl[FX_TORQUE_DIR_A] * torque_ctrl[FX_TORQUE_DIR_B] + torque_ctrl[FX_TORQUE_DIR_C] * torque_ctrl[FX_TORQUE_VALUE] + torque_ctrl[FX_TORQUE_ANGLE] * torque_ctrl[FX_TORQUE_DEF_NUM];
     if (torque_dir_vector_len < 0.1)
     {
         return -8;
