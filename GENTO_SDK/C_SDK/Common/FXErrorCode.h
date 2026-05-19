@@ -85,6 +85,19 @@ typedef enum
     FUNC_RET_COMM_WAIT_REPLY_TIMEOUT = -18,///< Timeout waiting for command reply
     FUNC_RET_FORMAT_CMD_FAILED = -19,      ///< Command formatting or construction failed
     FUNC_RET_INVALID_ROBOT_TYPE = -20,     ///< Invalid robot type to support
+
+    FUNC_RET_KINE_NOT_INITIALIZED = -1000,         ///< Kinematics context or arm environment is not initialized
+    FUNC_RET_KINE_INIT_FAILED = -1001,             ///< Kinematics environment initialization failed
+    FUNC_RET_KINE_TOOL_FAILED = -1002,             ///< Tool transform update failed
+    FUNC_RET_KINE_IK_UNREACHABLE = -1010,          ///< Inverse kinematics target is unreachable or singular
+    FUNC_RET_KINE_IK_JOINT_LIMIT_EXCEEDED = -1011, ///< Inverse kinematics result exceeds joint limits
+    FUNC_RET_KINE_PLAN_FAILED = -1020,             ///< Motion planning failed for an unspecified kinematics reason
+    FUNC_RET_KINE_PLAN_JOINT_LIMIT = -1021,        ///< Planned motion exceeds joint limits
+    FUNC_RET_KINE_PLAN_UNREACHABLE = -1022,        ///< Planned Cartesian target is unreachable
+    FUNC_RET_KINE_TRAJ_POINT_OVERFLOW = -1023,     ///< Planned trajectory exceeds the maximum point count
+    FUNC_RET_KINE_SYNC_POINT_MISMATCH = -1024,     ///< Dual-arm synchronized plan produced mismatched point counts
+    FUNC_RET_KINE_DYNAMICS_IDENT_FAILED = -1030,   ///< Dynamics identification failed
+    FUNC_RET_KINE_INTERNAL_ERROR = -1099,          ///< Internal kinematics or planning error    
 } FXFuncReturn;
 
 /** @} */
