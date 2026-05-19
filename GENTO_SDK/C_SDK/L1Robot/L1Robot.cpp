@@ -4923,6 +4923,43 @@ unsigned int FX_L1_Runtime_StopTraj(unsigned int obj_mask)
     return ret_obj_mask;
 }
 
+static int _FX_MapMotionRetToFuncRet(int motion_ret)
+{
+    switch (motion_ret)
+    {
+    case FX_MOTION_OK:
+        return FUNC_RET_SUCCESS;
+    case FX_MOTION_INVALID_INPUT:
+    case FX_MOTION_INVALID_ROBOT_SERIAL:
+        return FUNC_RET_INVALID_INPUT_ARG;
+    case FX_MOTION_NOT_INITIALIZED:
+        return FUNC_RET_KINE_NOT_INITIALIZED;
+    case FX_MOTION_INIT_FAILED:
+        return FUNC_RET_KINE_INIT_FAILED;
+    case FX_MOTION_TOOL_FAILED:
+        return FUNC_RET_KINE_TOOL_FAILED;
+    case FX_MOTION_IK_UNREACHABLE:
+        return FUNC_RET_KINE_IK_UNREACHABLE;
+    case FX_MOTION_IK_JOINT_LIMIT_EXCEEDED:
+        return FUNC_RET_KINE_IK_JOINT_LIMIT_EXCEEDED;
+    case FX_MOTION_PLAN_FAILED:
+        return FUNC_RET_KINE_PLAN_FAILED;
+    case FX_MOTION_PLAN_JOINT_LIMIT:
+        return FUNC_RET_KINE_PLAN_JOINT_LIMIT;
+    case FX_MOTION_PLAN_UNREACHABLE:
+        return FUNC_RET_KINE_PLAN_UNREACHABLE;
+    case FX_MOTION_POINT_OVERFLOW:
+        return FUNC_RET_KINE_TRAJ_POINT_OVERFLOW;
+    case FX_MOTION_SYNC_POINT_MISMATCH:
+        return FUNC_RET_KINE_SYNC_POINT_MISMATCH;
+    case FX_MOTION_DYNAMICS_IDENT_FAILED:
+        return FUNC_RET_KINE_DYNAMICS_IDENT_FAILED;
+    case FX_MOTION_ERROR:
+    default:
+        return FUNC_RET_KINE_INTERNAL_ERROR;
+    }
+}
+
 FX_MotionHandle FX_L1_Kinematics_Create(void)
 {
     return FX_L0_Kinematics_create();
@@ -4941,7 +4978,7 @@ void FX_L1_Kinematics_SetLogLevel(unsigned int log_level)
 int FX_L1_Kinematics_InitSingleArm_ByInputParams(FX_MotionHandle handle, int RobotSerial, int *type, double DH[8][4], double PNVA[8][4], double BOUND[4][3],
                                                  double GRV[3], double MASS[7], double MCP[7][3], double I[7][6])
 {
-    return (FX_L0_Kinematics_init_single_arm(handle, RobotSerial, type, DH, PNVA, BOUND, GRV, MASS, MCP, I) == FX_MOTION_OK) ? FUNC_RET_SUCCESS : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_init_single_arm(handle, RobotSerial, type, DH, PNVA, BOUND, GRV, MASS, MCP, I));
 }
 
 int FX_L1_Kinematics_InitSingleArm_ByIniConfig(FX_MotionHandle handle, int RobotSerial)
@@ -5274,38 +5311,36 @@ int FX_L1_Kinematics_InitSingleArm_ByIniConfig(FX_MotionHandle handle, int Robot
         }
     }
     // Initialization
-    return (FX_L0_Kinematics_init_single_arm(handle, RobotSerial, &type_, dh_input, pnva_input, bound_input,
-                                             gravity_input, mass_input, mcp_input, inertia_input) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_init_single_arm(handle, RobotSerial, &type_, dh_input, pnva_input, bound_input,
+                                                                          gravity_input, mass_input, mcp_input, inertia_input));
 }
 
 int FX_L1_Kinematics_SetTool(FX_MotionHandle handle, int robot_serial, double tool[4][4])
 {
-    return (FX_L0_Kinematics_set_tool(handle, robot_serial, tool) == FX_MOTION_OK) ? FUNC_RET_SUCCESS : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_set_tool(handle, robot_serial, tool));
 }
 
 int FX_L1_Kinematics_RemoveTool(FX_MotionHandle handle, int robot_serial)
 {
-    return (FX_L0_Kinematics_remove_tool(handle, robot_serial) == FX_MOTION_OK) ? FUNC_RET_SUCCESS : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_remove_tool(handle, robot_serial));
 }
 
 int FX_L1_Kinematics_ForwardKinematics(FX_MotionHandle handle, int robot_serial,
                                        double joints[7], double pose_matrix[4][4])
 {
-    return (FX_L0_Kinematics_forward_kinematics(handle, robot_serial, joints, pose_matrix) == FX_MOTION_OK) ? FUNC_RET_SUCCESS : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_forward_kinematics(handle, robot_serial, joints, pose_matrix));
 }
 
 int FX_L1_Kinematics_Jacobian(FX_MotionHandle handle, int robot_serial,
                               double joints[7], double jacobian[6][7])
 {
-    return (FX_L0_Kinematics_jacobian(handle, robot_serial, joints, jacobian) == FX_MOTION_OK) ? FUNC_RET_SUCCESS : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_jacobian(handle, robot_serial, joints, jacobian));
 }
 
 int FX_L1_Kinematics_InverseKinematics(FX_MotionHandle handle, int robot_serial,
                                        FX_InvKineSolvePara *params)
 {
-    return (FX_L0_Kinematics_inverse_kinematics(handle, robot_serial, params) == FX_MOTION_OK) ? FUNC_RET_SUCCESS : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_inverse_kinematics(handle, robot_serial, params));
 }
 
 int FX_L1_Kinematics_SetSkyeBodyCondition(FX_MotionHandle handle,
@@ -5313,23 +5348,21 @@ int FX_L1_Kinematics_SetSkyeBodyCondition(FX_MotionHandle handle,
                                           double std_arm0_len, double k_arm0,
                                           double std_arm1_len, double k_arm1)
 {
-    return (FX_L0_Kinematics_set_body_condition(handle, std_body, k_body,
-                                                std_arm0_len, k_arm0, std_arm1_len, k_arm1) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_set_body_condition(handle, std_body, k_body,
+                                                                          std_arm0_len, k_arm0, std_arm1_len, k_arm1));
 }
 
 int FX_L1_Kinematics_SkyeBodyForwardKinematics(FX_MotionHandle handle, double jv[3],
                                                double arm0_shoulder_matrix[4][4], double arm1_shoulder_matrix[4][4])
 {
-    return (FX_L0_Kinematics_body_forward(handle, jv, arm0_shoulder_matrix, arm1_shoulder_matrix) == FX_MOTION_OK) ? FUNC_RET_SUCCESS : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_body_forward(handle, jv, arm0_shoulder_matrix, arm1_shoulder_matrix));
 }
 
 int FX_L1_Kinematics_SkyeBodyInverseKinematics(FX_MotionHandle handle,
                                                double arm0_tcp[3], double arm1_tcp[3],
                                                double out_body_joints[3])
 {
-    return (FX_L0_Kinematics_calc_body_position(handle, arm0_tcp, arm1_tcp, out_body_joints) == FX_MOTION_OK) ? FUNC_RET_SUCCESS : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_calc_body_position(handle, arm0_tcp, arm1_tcp, out_body_joints));
 }
 
 int FX_L1_Kinematics_SkyeBodyInverseKinematicsWithRef(FX_MotionHandle handle,
@@ -5337,10 +5370,7 @@ int FX_L1_Kinematics_SkyeBodyInverseKinematicsWithRef(FX_MotionHandle handle,
                                                       double arm0_tcp[3], double arm1_tcp[3],
                                                       double out_body_joints[3])
 {
-    return (FX_L0_Kinematics_calc_body_position_with_ref(handle, ref_body_joints, arm0_tcp, arm1_tcp, out_body_joints) == FX_MOTION_OK)
-
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_calc_body_position_with_ref(handle, ref_body_joints, arm0_tcp, arm1_tcp, out_body_joints));
 }
 
 int FX_L1_Kinematics_PlanJointMove(FX_MotionHandle handle, int robot_serial,
@@ -5348,10 +5378,8 @@ int FX_L1_Kinematics_PlanJointMove(FX_MotionHandle handle, int robot_serial,
                                    double vel_ratio, double acc_ratio, int freq,
                                    double *point_set_handle, int *point_num)
 {
-    return (FX_L0_Kinematics_plan_joint_move(handle, robot_serial, start_joints, end_joints,
-                                             vel_ratio, acc_ratio, freq, point_set_handle, point_num) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_plan_joint_move(handle, robot_serial, start_joints, end_joints,
+                                                                       vel_ratio, acc_ratio, freq, point_set_handle, point_num));
 }
 
 int FX_L1_Kinematics_PlanLinearMove(FX_MotionHandle handle, int robot_serial,
@@ -5360,10 +5388,8 @@ int FX_L1_Kinematics_PlanLinearMove(FX_MotionHandle handle, int robot_serial,
                                     double vel, double acc, int freq,
                                     double *point_set_handle, int *point_num)
 {
-    return (FX_L0_Kinematics_plan_linear_move(handle, robot_serial, start_xyzabc, end_xyzabc,
-                                              ref_joints, vel, acc, freq, point_set_handle, point_num) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_plan_linear_move(handle, robot_serial, start_xyzabc, end_xyzabc,
+                                                                        ref_joints, vel, acc, freq, point_set_handle, point_num));
 }
 
 int FX_L1_Kinematics_PlanLinearMoveKeepJoints(FX_MotionHandle handle, int robot_serial,
@@ -5371,10 +5397,8 @@ int FX_L1_Kinematics_PlanLinearMoveKeepJoints(FX_MotionHandle handle, int robot_
                                               double vel, double acc, int freq,
                                               double *point_set_handle, int *point_num)
 {
-    return (FX_L0_Kinematics_plan_linear_keep_joints(handle, robot_serial, start_joints, end_joints,
-                                                     vel, acc, freq, point_set_handle, point_num) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_plan_linear_keep_joints(handle, robot_serial, start_joints, end_joints,
+                                                                                vel, acc, freq, point_set_handle, point_num));
 }
 
 int FX_L1_Kinematics_PlanLinearMove_MultiPoints_SetStart(FX_MotionHandle handle, int robot_serial,
@@ -5384,11 +5408,9 @@ int FX_L1_Kinematics_PlanLinearMove_MultiPoints_SetStart(FX_MotionHandle handle,
                                                          double zsp_para[6],
                                                          double vel, double acc, int freq)
 {
-    return (FX_L0_Kinematics_multi_points_set_movl_start(handle, robot_serial, ref_joints,
-                                                         start_xyzabc, end_xyzabc, allow_range,
-                                                         zsp_type, zsp_para, vel, acc, freq) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_multi_points_set_movl_start(handle, robot_serial, ref_joints,
+                                                                                    start_xyzabc, end_xyzabc, allow_range,
+                                                                                    zsp_type, zsp_para, vel, acc, freq));
 }
 
 int FX_L1_Kinematics_PlanLinearMove_MultiPoints_SetNextPoints(FX_MotionHandle handle, int robot_serial,
@@ -5397,36 +5419,34 @@ int FX_L1_Kinematics_PlanLinearMove_MultiPoints_SetNextPoints(FX_MotionHandle ha
                                                               double zsp_para[6],
                                                               double vel, double acc)
 {
-    return (FX_L0_Kinematics_multi_points_set_movl_next_points(handle, robot_serial, next_xyzabc, allow_range,
-                                                               zsp_type, zsp_para, vel, acc) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_multi_points_set_movl_next_points(handle, robot_serial, next_xyzabc, allow_range,
+                                                                                          zsp_type, zsp_para, vel, acc));
 }
 
 int FX_L1_Kinematics_PlanLinearMove_MultiPoints_GetPoints(FX_MotionHandle handle,
                                                           double *point_set_handle, int *point_num)
 {
-    return (FX_L0_Kinematics_multi_points_get_movl_path(handle, point_set_handle, point_num) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_multi_points_get_movl_path(handle, point_set_handle, point_num));
 }
 
 int FX_L1_Kinematics_ArmsSynchronousPlanning(FX_MotionHandle handle,
                                              ArmsSynchronousPlanningParams *params,
                                              double *arm0_point_set, double *arm1_point_set, int *point_num)
 {
-    if (!handle || !params)
-        return 0;
-    return (FX_L0_Kinematics_plan_dual_arm_fixed_body(handle, params, arm0_point_set, arm1_point_set, point_num) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    if (!handle || !params || !arm0_point_set || !arm1_point_set || !point_num)
+        return FUNC_RET_INVALID_INPUT_ARG;
+
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_plan_dual_arm_fixed_body(handle, params, arm0_point_set, arm1_point_set, point_num));
 }
 
 int FX_L1_Kinematics_DynamicsIdentification(int robot_type, char *file_path, double *mass, double mr[3], double inertia[6])
 {
-    return (FX_L0_Kinematics_dynamics_identification(robot_type, file_path, mass, mr, inertia) == FX_MOTION_OK)
-               ? FUNC_RET_SUCCESS
-               : FUNC_RET_OPERATION_FAILED;
+    if (robot_type != FX_ROBOT_TYPE_PILOT_CCS && robot_type != FX_ROBOT_TYPE_PILOT_SRS)
+    {
+        return FUNC_RET_INVALID_ROBOT_TYPE;
+    }
+
+    return _FX_MapMotionRetToFuncRet(FX_L0_Kinematics_dynamics_identification(robot_type, file_path, mass, mr, inertia));
 }
 
 void FX_L1_XYZABC2Matrix(double xyzabc[6], double matrix[4][4])

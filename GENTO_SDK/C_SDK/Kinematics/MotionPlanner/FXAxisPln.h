@@ -5,6 +5,15 @@
 // #include "FXMatrix.h"
 #include "FxKinematics.h"
 
+enum FX_PLANNER_RET
+{
+	FX_PLANNER_SUCCESS = 0,
+	FX_PLANNER_ERROR = 1,
+	FX_PLANNER_IK_FAILED = 2,
+	FX_PLANNER_IK_JOINT_LIMIT = 3,
+	FX_PLANNER_IK_OUT_OF_RANGE = 4,
+	FX_PLANNER_JOINT_LIMIT = 5,
+};
 enum FX_POINT_STATE
 {
 	FX_MOVL_START = 81,
@@ -39,6 +48,7 @@ class CAxisPln
 public:
 	CAxisPln();
 	virtual ~CAxisPln();
+	FX_INT32 GetLastError() const;
 
 	FX_VOID OnSetFreq(FX_INT32 freq);
 
@@ -84,6 +94,7 @@ protected:
 	FX_BOOL m_Set_Freq;
 	FX_DOUBLE m_freq;
 	FX_DOUBLE m_cycle; // frequency to cycle
+	FX_INT32 m_LastError;
 
 	FX_BOOL OnGetRatioByCntScale(FX_INT32 total_cnt, FX_INT32 cur_cnt, FX_DOUBLE &ratio1, FX_DOUBLE &ratio2);
 
@@ -96,6 +107,7 @@ class CAxisJointPln
 public:
 	CAxisJointPln();
 	virtual ~CAxisJointPln();
+	FX_INT32 GetLastError() const;
 	FX_BOOL OnMovJoint(FX_INT32 RobotSerial, Vect7 start_joint, Vect7 end_joint, FX_DOUBLE vel_ratio, FX_DOUBLE acc_ratio, CPointSet *ret_pset);
 
 	FX_BOOL OnSetLmt(FX_INT32 dof, Vect8 PosNeg, Vect8 PosPos, Vect8 VelLmt, Vect8 AccLmt);
@@ -128,6 +140,7 @@ protected:
 	FX_BOOL m_FristTag;
 
 	FX_DOUBLE m_ts;
+	FX_INT32 m_LastError;
 };
 
 class CMovingAverageFilter

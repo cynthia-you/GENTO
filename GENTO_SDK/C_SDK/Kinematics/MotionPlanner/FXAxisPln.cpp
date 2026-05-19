@@ -314,15 +314,21 @@ FX_DOUBLE _ratio301[301] = {
 CAxisPln::CAxisPln()
 {
 	m_Set_Freq = FX_FALSE;
+	m_LastError = FX_PLANNER_SUCCESS;
 }
 
 CAxisPln::~CAxisPln()
 {
 }
 
+FX_INT32 CAxisPln::GetLastError() const
+{
+	return m_LastError;
+}
+
 FX_VOID CAxisPln::OnSetFreq(FX_INT32 freq)
 {
-	const FX_DOUBLE base_freq = 1000.0; // 1ms脧碌脥鲁
+	const FX_DOUBLE base_freq = 1000.0; // 1ms鑴х鑴ラ瞾
 	FX_DOUBLE ratio = base_freq / (FX_DOUBLE)freq;
 	FX_DOUBLE rounded = round(ratio);
 
@@ -870,6 +876,7 @@ FX_BOOL CAxisPln::OnMovL(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start_pos
 
 FX_BOOL CAxisPln::OnMovL(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start_pos, Vect6 end_pos, FX_DOUBLE vel, FX_DOUBLE acc, FX_DOUBLE jerk, CPointSet *ret_pset)
 {
+	m_LastError = FX_PLANNER_ERROR;
 	///////determine same points
 	FX_INT32 i = 0;
 	FX_INT32 j = 0;
@@ -1170,6 +1177,7 @@ FX_BOOL CAxisPln::OnMovL(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start_pos
 
 		if (FX_Robot_Kine_IK(RobotSerial, &sp) == FX_FALSE)
 		{
+			m_LastError = (sp.m_Output_IsOutRange == FX_TRUE) ? FX_PLANNER_IK_OUT_OF_RANGE : FX_PLANNER_IK_FAILED;
 			return FX_FALSE;
 		}
 
@@ -1178,6 +1186,7 @@ FX_BOOL CAxisPln::OnMovL(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start_pos
 		{
 			if (sp.m_Output_JntExdTags[kk] == FX_TRUE)
 			{
+				m_LastError = FX_PLANNER_IK_JOINT_LIMIT;
 				FX_LOG_ERRO("OnMovL: IK result exceeds joint limit at joint=%d", kk);
 				return FX_FALSE;
 			}
@@ -1185,6 +1194,7 @@ FX_BOOL CAxisPln::OnMovL(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start_pos
 
 		if (sp.m_Output_IsOutRange == FX_TRUE)
 		{
+			m_LastError = FX_PLANNER_IK_OUT_OF_RANGE;
 			FX_LOG_ERRO("OnMovL: target pose exceeds reachable workspace");
 			return FX_FALSE;
 		}
@@ -1205,6 +1215,7 @@ FX_BOOL CAxisPln::OnMovL(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start_pos
 		// }
 		// ret_pset->OnSetPoint(ret_joints);
 	}
+	m_LastError = FX_PLANNER_SUCCESS;
 	return FX_TRUE;
 }
 
@@ -1527,6 +1538,7 @@ FX_BOOL CAxisPln::OnMovL_KeepJ_Cut(FX_INT32 RobotSerial, Vect7 startjoints, Vect
 
 FX_BOOL CAxisPln::OnMovL_KeepJ_CutA(FX_INT32 RobotSerial, Vect7 startjoints, Vect7 stopjoints, FX_DOUBLE vel, FX_DOUBLE acc, CPointSet *ret_pset)
 {
+	m_LastError = FX_PLANNER_ERROR;
 	FX_INT32 i = 0;
 	FX_INT32 j = 0;
 	ret_pset->OnInit(PotT_9d);
@@ -1774,6 +1786,14 @@ FX_BOOL CAxisPln::OnMovL_KeepJ_CutA(FX_INT32 RobotSerial, Vect7 startjoints, Vec
 
 		if (FX_Robot_Kine_IK(RobotSerial, &sp) == FX_FALSE)
 		{
+			m_LastError = (sp.m_Output_IsOutRange == FX_TRUE) ? FX_PLANNER_IK_OUT_OF_RANGE : FX_PLANNER_IK_FAILED;
+			return FX_FALSE;
+		}
+
+		if (sp.m_Output_IsOutRange == FX_TRUE)
+		{
+			m_LastError = FX_PLANNER_IK_OUT_OF_RANGE;
+			FX_LOG_ERRO("OnMovL_KeepJ_CutA: target pose exceeds reachable workspace");
 			return FX_FALSE;
 		}
 
@@ -1799,6 +1819,7 @@ FX_BOOL CAxisPln::OnMovL_KeepJ_CutA(FX_INT32 RobotSerial, Vect7 startjoints, Vec
 			{
 				if (cur_ext < t_ext2)
 				{
+					m_LastError = FX_PLANNER_IK_JOINT_LIMIT;
 					return FX_FALSE;
 				}
 				dir = -1;
@@ -1808,6 +1829,7 @@ FX_BOOL CAxisPln::OnMovL_KeepJ_CutA(FX_INT32 RobotSerial, Vect7 startjoints, Vec
 
 				if (cur_ext < t_ext1)
 				{
+					m_LastError = FX_PLANNER_IK_JOINT_LIMIT;
 					return FX_FALSE;
 				}
 			}
@@ -1819,6 +1841,7 @@ FX_BOOL CAxisPln::OnMovL_KeepJ_CutA(FX_INT32 RobotSerial, Vect7 startjoints, Vec
 				cur_ext = sp.m_Output_JntExdABS;
 				if (FX_Fabs(sp.m_Input_ZSP_Angle) > 360)
 				{
+					m_LastError = FX_PLANNER_IK_JOINT_LIMIT;
 					return FX_FALSE;
 				}
 				sp.m_Input_ZSP_Angle += dir;
@@ -1836,6 +1859,7 @@ FX_BOOL CAxisPln::OnMovL_KeepJ_CutA(FX_INT32 RobotSerial, Vect7 startjoints, Vec
 		ret_pset->OnSetPoint(&p[19]);
 	}
 
+	m_LastError = FX_PLANNER_SUCCESS;
 	return FX_TRUE;
 }
 
@@ -1855,6 +1879,7 @@ FX_BOOL CAxisPln::OnInit_MOVL_ZSP()
 		last_jv[i] = 0.0;
 	}
 	last_jv[6] = 0.0;
+	m_LastError = FX_PLANNER_SUCCESS;
 	return FX_TRUE;
 }
 
@@ -1908,6 +1933,7 @@ FX_BOOL CAxisPln::OnGetRatioByCntScale(FX_INT32 total_cnt, FX_INT32 cur_cnt, FX_
 
 FX_BOOL CAxisPln::OnMovL_ZSP(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start_pos, Vect6 end_pos, FX_DOUBLE vel, FX_DOUBLE acc, FX_DOUBLE jerk, FX_INT32 ZSP_type, Vect6 ZSP_para, FX_DOUBLE Allow_Range, FX_INT32 Point_State)
 {
+	m_LastError = FX_PLANNER_ERROR;
 	///////Calculate composite axis motion length
 	FX_INT32 i = 0;
 	FX_INT32 j = 0;
@@ -1944,6 +1970,9 @@ FX_BOOL CAxisPln::OnMovL_ZSP(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start
 	}
 	xyz_len_ = sqrt(xyz_len_square_);
 
+	FX_LOG_DEBG("<OnMovL_ZSP> Start Pos: [%f %f %f %f %f %f]", start_pos[0], start_pos[1], start_pos[2], start_pos[3], start_pos[4], start_pos[5]);
+	FX_LOG_DEBG("<OnMovL_ZSP> End Pos: [%f %f %f %f %f %f]", end_pos[0], end_pos[1], end_pos[2], end_pos[3], end_pos[4], end_pos[5]);
+
 	// Cuter Euler-Angle based on Base_Coordinate
 	FX_DOUBLE Q_start[4] = {0};
 	FX_DOUBLE Q_end[4] = {0};
@@ -1962,10 +1991,10 @@ FX_BOOL CAxisPln::OnMovL_ZSP(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start
 		Q_end[2] = -Q_end[2];
 		Q_end[3] = -Q_end[3];
 	}
-	FX_LOG_DEBG("cosangle[%f ]", cosangle);
-	if (fabs(cosangle) > 1.0000000)
+
+	if(FX_Fabs(cosangle) > 1.0)
 	{
-		cosangle = fabs(cosangle) / cosangle;
+		cosangle = (cosangle > 0) ? 1.0 : -1.0;
 	}
 	FX_DOUBLE qangle = acos(cosangle) * 2 * FXARM_R2D;
 
@@ -2083,6 +2112,7 @@ FX_BOOL CAxisPln::OnMovL_ZSP(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start
 
 		if (FX_Robot_Kine_IK(RobotSerial, &sp) == FX_FALSE)
 		{
+			m_LastError = (sp.m_Output_IsOutRange == FX_TRUE) ? FX_PLANNER_IK_OUT_OF_RANGE : FX_PLANNER_IK_FAILED;
 			return FX_FALSE;
 		}
 
@@ -2091,6 +2121,7 @@ FX_BOOL CAxisPln::OnMovL_ZSP(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start
 		{
 			if (sp.m_Output_JntExdTags[kk] == FX_TRUE)
 			{
+				m_LastError = FX_PLANNER_IK_JOINT_LIMIT;
 				FX_LOG_ERRO("OnMovL_ZSP: IK result exceeds joint limit at joint=%d", kk + 1);
 				return FX_FALSE;
 			}
@@ -2098,6 +2129,7 @@ FX_BOOL CAxisPln::OnMovL_ZSP(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start
 
 		if (sp.m_Output_IsOutRange == FX_TRUE)
 		{
+			m_LastError = FX_PLANNER_IK_OUT_OF_RANGE;
 			FX_LOG_ERRO("OnMovL_ZSP: target pose exceeds reachable workspace");
 			return FX_FALSE;
 		}
@@ -2114,6 +2146,12 @@ FX_BOOL CAxisPln::OnMovL_ZSP(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start
 	}
 
 	FX_INT32 tmp_out_num = tmp_out.OnGetPointNum();
+	if (tmp_out_num <= 0)
+	{
+		m_LastError = FX_PLANNER_ERROR;
+		FX_LOG_ERRO("OnMovL_ZSP: no joint trajectory points generated");
+		return FX_FALSE;
+	}
 
 	// Save last jv
 	FX_DOUBLE *last_jv_tmp = tmp_out.OnGetPoint(tmp_out_num - 1);
@@ -2168,11 +2206,13 @@ FX_BOOL CAxisPln::OnMovL_ZSP(FX_INT32 RobotSerial, Vect7 ref_joints, Vect6 start
 	}
 
 	Overlap_Num = overlap_num;
+	m_LastError = FX_PLANNER_SUCCESS;
 	return FX_TRUE;
 }
 
 FX_BOOL CAxisPln::OnSendPoints(CPointSet *out)
 {
+	m_LastError = FX_PLANNER_ERROR;
 	FX_INT32 num = m_output_pset.OnGetPointNum();
 	out->OnEmpty();
 	out->OnInit(PotT_7d);
@@ -2186,9 +2226,11 @@ FX_BOOL CAxisPln::OnSendPoints(CPointSet *out)
 	num = out->OnGetPointNum();
 	if (num == 0)
 	{
+		m_LastError = FX_PLANNER_ERROR;
 		FX_LOG_ERRO("OnSendPoints: No results saved.");
 		return FX_FALSE;
 	}
+	m_LastError = FX_PLANNER_SUCCESS;
 	FX_LOG_DEBG("<OnSendPoints> MovL_Multi_Points: %d points saved", num);
 	return FX_TRUE;
 }
@@ -2220,6 +2262,11 @@ FX_DOUBLE CAxisPln::OnGetLength(Vect6 start_pos, Vect6 end_pos, Quaternion Q_sta
 		Q_end[1] = -Q_end[1];
 		Q_end[2] = -Q_end[2];
 		Q_end[3] = -Q_end[3];
+	}
+
+	if(FX_Fabs(cosangle) > 1.0)
+	{
+		cosangle = (cosangle > 0) ? 1.0 : -1.0;
 	}
 	FX_DOUBLE qangle = acos(cosangle) * 2 * FXARM_R2D;
 
@@ -2351,6 +2398,7 @@ FX_INT32 CAxisPln::OnXYZQ2Joint(ArmsSynchronousPlanningParams *ASPP, CPointSet *
 
 FX_BOOL CAxisPln::OnMovL_DualArm_FixBody(ArmsSynchronousPlanningParams *ASPP, CPointSet *Arm0_Pln_Path, CPointSet *Arm1_Pln_Path)
 {
+	m_LastError = FX_PLANNER_ERROR;
 	FX_INT32 i = 0;
 	FX_INT32 j = 0;
 	CPointSet com_axis;
@@ -2412,8 +2460,43 @@ FX_BOOL CAxisPln::OnMovL_DualArm_FixBody(ArmsSynchronousPlanningParams *ASPP, CP
 	Arm0_Pln_Path->OnEmpty();
 	Arm1_Pln_Path->OnInit(PotT_7d);
 	Arm1_Pln_Path->OnEmpty();
-	OnXYZQ2Joint(ASPP, &cartesian_traj_left, Arm0_Pln_Path, 0);
-	OnXYZQ2Joint(ASPP, &cartesian_traj_right, Arm1_Pln_Path, 1);
+	FX_INT32 arm0_ret = OnXYZQ2Joint(ASPP, &cartesian_traj_left, Arm0_Pln_Path, 0);
+	if (arm0_ret != 1)
+	{
+		switch (arm0_ret)
+		{
+		case 3:
+			m_LastError = FX_PLANNER_IK_JOINT_LIMIT;
+			break;
+		case 4:
+			m_LastError = FX_PLANNER_IK_OUT_OF_RANGE;
+			break;
+		case 2:
+		default:
+			m_LastError = FX_PLANNER_IK_FAILED;
+			break;
+		}
+		return FX_FALSE;
+	}
+
+	FX_INT32 arm1_ret = OnXYZQ2Joint(ASPP, &cartesian_traj_right, Arm1_Pln_Path, 1);
+	if (arm1_ret != 1)
+	{
+		switch (arm1_ret)
+		{
+		case 3:
+			m_LastError = FX_PLANNER_IK_JOINT_LIMIT;
+			break;
+		case 4:
+			m_LastError = FX_PLANNER_IK_OUT_OF_RANGE;
+			break;
+		case 2:
+		default:
+			m_LastError = FX_PLANNER_IK_FAILED;
+			break;
+		}
+		return FX_FALSE;
+	}
 
 	// save
 	if (0)
@@ -2424,6 +2507,7 @@ FX_BOOL CAxisPln::OnMovL_DualArm_FixBody(ArmsSynchronousPlanningParams *ASPP, CP
 		Arm1_Pln_Path->OnSave(path2);
 	}
 
+	m_LastError = FX_PLANNER_SUCCESS;
 	return FX_TRUE;
 }
 
@@ -2432,14 +2516,21 @@ CAxisJointPln::CAxisJointPln()
 {
 	m_dof = 0;
 	m_ts = 0.02;
+	m_LastError = FX_PLANNER_SUCCESS;
 }
 
 CAxisJointPln::~CAxisJointPln()
 {
 }
 
+FX_INT32 CAxisJointPln::GetLastError() const
+{
+	return m_LastError;
+}
+
 FX_BOOL CAxisJointPln::OnMovJoint(FX_INT32 RobotSerial, Vect7 start_joint, Vect7 end_joint, FX_DOUBLE vel_ratio, FX_DOUBLE acc_ratio, CPointSet *ret_pset)
 {
+	m_LastError = FX_PLANNER_ERROR;
 	FX_INT32 i = 0;
 	FX_DOUBLE vr = vel_ratio;
 	FX_DOUBLE ar = acc_ratio;
@@ -2462,6 +2553,7 @@ FX_BOOL CAxisJointPln::OnMovJoint(FX_INT32 RobotSerial, Vect7 start_joint, Vect7
 	FX_INT32 num = OnPln(sta, sto, vr, ar);
 	if (num <= 0)
 	{
+		m_LastError = FX_PLANNER_JOINT_LIMIT;
 		FX_LOG_ERRO("OnMovJoint: Failed to generate joint trajectory");
 		return FX_FALSE;
 	}
@@ -2478,12 +2570,14 @@ FX_BOOL CAxisJointPln::OnMovJoint(FX_INT32 RobotSerial, Vect7 start_joint, Vect7
 		{
 			if (retp[j] < m_PosNeg[j] || retp[j] > m_PosPos[j])
 			{
+				m_LastError = FX_PLANNER_JOINT_LIMIT;
 				FX_LOG_ERRO("OnMovJoint: Joint %d exceeds limit", j + 1, i);
 				return FX_FALSE;
 			}
 		}
 		ret_pset->OnSetPoint(retp);
 	}
+	m_LastError = FX_PLANNER_SUCCESS;
 	return FX_TRUE;
 }
 

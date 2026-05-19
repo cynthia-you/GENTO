@@ -1,18 +1,21 @@
-﻿#include "FXMotionPlanner.h"
+#include "FXMotionPlanner.h"
 #include "FXSkyeBodyKinematics.h"
 #include "FXMatrix.h"
 #include "FXLog.h"
 
 CFxPln::CFxPln()
 {
-
+    m_LastError = FX_PLANNER_SUCCESS;
 }
 
 CFxPln::~CFxPln()
 {
-
 }
 
+FX_INT32 CFxPln::GetLastError() const
+{
+    return m_LastError;
+}
 FX_BOOL CFxPln::OnInitEnv_SingleArm(FX_INT32 RobotSerial, FX_INT32 *type, FX_DOUBLE DH[8][4], FX_DOUBLE PNVA[8][4], FX_DOUBLE BOUND[4][3])
 {
     if (RobotSerial < 0 || RobotSerial > 1)
@@ -97,6 +100,7 @@ FX_VOID CFxPln::OnPlnRemoveTool(FX_INT32 RobotSerial)
 
 FX_BOOL CFxPln::OnMovJ(Vect7 start_joint, Vect7 end_joint, FX_DOUBLE vel_ratio, FX_DOUBLE acc_ratio, FX_INT32 freq, CPointSet *ret_pset)
 {
+    m_LastError = FX_PLANNER_ERROR;
     if (m_KineIF.m_InitTag == FX_FALSE)
     {
         FX_LOG_ERRO("OnMovJ: called before initialization");
@@ -113,7 +117,7 @@ FX_BOOL CFxPln::OnMovJ(Vect7 start_joint, Vect7 end_joint, FX_DOUBLE vel_ratio, 
     FX_DOUBLE lmt_neg[8] = {0};
     FX_DOUBLE lmt_vel[8] = {0};
     FX_DOUBLE lmt_acc[8] = {0};
-    if(!m_KineIF.OnGetArmLmt(type, lmt_neg, lmt_pos, lmt_vel, lmt_acc))
+    if (!m_KineIF.OnGetArmLmt(type, lmt_neg, lmt_pos, lmt_vel, lmt_acc))
     {
         FX_LOG_ERRO("OnMovJ: failed to get arm limits, robot_serial=%d", m_KineIF.Kine_Serial);
         return FX_FALSE;
@@ -134,13 +138,18 @@ FX_BOOL CFxPln::OnMovJ(Vect7 start_joint, Vect7 end_joint, FX_DOUBLE vel_ratio, 
     FX_BOOL result = m_AxisJointPln.OnMovJoint(m_KineIF.Kine_Serial, start_joint, end_joint, vel_ratio, acc_ratio, ret_pset);
     if (result == FX_FALSE)
     {
+        m_LastError = m_AxisJointPln.GetLastError();
         FX_LOG_WARN("OnMovJ: planning failed, robot_serial=%d", m_KineIF.Kine_Serial);
+        return FX_FALSE;
     }
-    return result;
+
+    m_LastError = FX_PLANNER_SUCCESS;
+    return FX_TRUE;
 }
 
 FX_BOOL CFxPln::OnMovL(Vect6 Start_XYZABC, Vect6 End_XYZABC, Vect7 Ref_Joints, FX_DOUBLE Vel, FX_DOUBLE ACC, FX_INT32 freq, CPointSet *pset)
 {
+    m_LastError = FX_PLANNER_ERROR;
     if (m_KineIF.m_InitTag == FX_FALSE)
     {
         FX_LOG_ERRO("OnMovL: called before initialization");
@@ -172,14 +181,18 @@ FX_BOOL CFxPln::OnMovL(Vect6 Start_XYZABC, Vect6 End_XYZABC, Vect7 Ref_Joints, F
     FX_BOOL result = Spln.OnMovL(m_KineIF.Kine_Serial, refJ, start_pos, end_pos, Vel, ACC, jerk, pset);
     if (result == FX_FALSE)
     {
+        m_LastError = Spln.GetLastError();
         FX_LOG_WARN("OnMovL: planning failed, robot_serial=%d", m_KineIF.Kine_Serial);
+        return FX_FALSE;
     }
 
-    return result;
+    m_LastError = FX_PLANNER_SUCCESS;
+    return FX_TRUE;
 }
 
 FX_BOOL CFxPln::OnMovL_KeepJ(Vect7 startjoints, Vect7 stopjoints, FX_DOUBLE vel, FX_DOUBLE acc, FX_INT32 freq, CPointSet *pset)
 {
+    m_LastError = FX_PLANNER_ERROR;
     if (m_KineIF.m_InitTag == FX_FALSE)
     {
         FX_LOG_ERRO("OnMovL_KeepJ: called before initialization");
@@ -206,9 +219,13 @@ FX_BOOL CFxPln::OnMovL_KeepJ(Vect7 startjoints, Vect7 stopjoints, FX_DOUBLE vel,
     FX_BOOL result = Spln.OnMovL_KeepJ_CutA(m_KineIF.Kine_Serial, start_pos, end_pos, vel, acc, pset);
     if (result == FX_FALSE)
     {
+        m_LastError = Spln.GetLastError();
         FX_LOG_WARN("OnMovL_KeepJ: planning failed, robot_serial=%d", m_KineIF.Kine_Serial);
+        return FX_FALSE;
     }
-    return result;
+
+    m_LastError = FX_PLANNER_SUCCESS;
+    return FX_TRUE;
 }
 
 FX_VOID CFxPln::XYZABC2Matrix4_DEG(FX_DOUBLE xyzabc[6], FX_DOUBLE m[4][4])
@@ -282,6 +299,7 @@ FX_VOID CFxPln::Matrix42XYZABC_DEG(FX_DOUBLE m[4][4], FX_DOUBLE xyzabc[6])
 FX_BOOL CFxPln::MultiPoints_Set_MovL_Start(Vect7 refjoints, Vect6 Start_XYZABC, Vect6 End_XYZABC,
                                               FX_DOUBLE Allow_Range, FX_INT32 ZSP_Type, Vect6 ZSP_Para, FX_DOUBLE Vel, FX_DOUBLE ACC, FX_INT32 freq)
 {
+    m_LastError = FX_PLANNER_ERROR;
     Vect6 start_pos = {0};
     Vect6 end_pos = {0};
     Vect7 refJ = {0};
@@ -298,12 +316,20 @@ FX_BOOL CFxPln::MultiPoints_Set_MovL_Start(Vect7 refjoints, Vect6 Start_XYZABC, 
     FX_DOUBLE jerk = ACC * 10;
     m_AxisPln.OnInit_MOVL_ZSP();
     m_AxisPln.OnSetFreq(freq);
-    return m_AxisPln.OnMovL_ZSP(m_KineIF.Kine_Serial, refJ, start_pos, end_pos, Vel, ACC, jerk, ZSP_Type, ZSP_Para, Allow_Range, FX_MOVL_START);
+    FX_BOOL result = m_AxisPln.OnMovL_ZSP(m_KineIF.Kine_Serial, refJ, start_pos, end_pos, Vel, ACC, jerk, ZSP_Type, ZSP_Para, Allow_Range, FX_MOVL_START);
+    if (result == FX_FALSE)
+    {
+        m_LastError = m_AxisPln.GetLastError();
+        return FX_FALSE;
+    }
+    m_LastError = FX_PLANNER_SUCCESS;
+    return FX_TRUE;
 }
 
 FX_BOOL CFxPln::MultiPoints_Set_MovL_NextPoints(Vect6 Next_XYZABC,
                                                    FX_DOUBLE Allow_Range, FX_INT32 ZSP_Type, Vect6 ZSP_Para, FX_DOUBLE Vel, FX_DOUBLE ACC)
 {
+    m_LastError = FX_PLANNER_ERROR;
     Vect6 start_pos = {0};
     Vect6 end_pos = {0};
     Vect7 refJ = {0};
@@ -319,22 +345,34 @@ FX_BOOL CFxPln::MultiPoints_Set_MovL_NextPoints(Vect6 Next_XYZABC,
 
     FX_DOUBLE jerk = ACC * 10;
 
-    return m_AxisPln.OnMovL_ZSP(m_KineIF.Kine_Serial, refJ, start_pos, end_pos, Vel, ACC, jerk, ZSP_Type, ZSP_Para, Allow_Range, FX_MOVL_NEXT);
+    FX_BOOL result = m_AxisPln.OnMovL_ZSP(m_KineIF.Kine_Serial, refJ, start_pos, end_pos, Vel, ACC, jerk, ZSP_Type, ZSP_Para, Allow_Range, FX_MOVL_NEXT);
+    if (result == FX_FALSE)
+    {
+        m_LastError = m_AxisPln.GetLastError();
+        return FX_FALSE;
+    }
+    m_LastError = FX_PLANNER_SUCCESS;
+    return FX_TRUE;
 }
 
 FX_BOOL CFxPln::MultiPoints_Get_MovL_Path(CPointSet *ret_pset)
 {
+    m_LastError = FX_PLANNER_ERROR;
     FX_BOOL result = m_AxisPln.OnSendPoints(ret_pset);
     if (result == FX_FALSE)
     {
+        m_LastError = m_AxisPln.GetLastError();
         FX_LOG_WARN("MultiPoints_Get_MovL_Path: returned no path points");
+        return FX_FALSE;
     }
-    return result;
+    m_LastError = FX_PLANNER_SUCCESS;
+    return FX_TRUE;
 }
 
 //////////////////////////////DualArm with FixBody
 FX_BOOL CFxPln::OnMovL_DualArm_FixBody(ArmsSynchronousPlanningParams *ASPP, CPointSet *Arm0_Pln_Path, CPointSet *Arm1_Pln_Path)
 {
+    m_LastError = FX_PLANNER_ERROR;
     if (!m_Kine_Left_Arm.m_InitTag || !m_Kine_Right_Arm.m_InitTag)
     {
         FX_LOG_ERRO("OnMovL_DualArm_FixBody: called before both arms are initialized");
@@ -376,5 +414,13 @@ FX_BOOL CFxPln::OnMovL_DualArm_FixBody(ArmsSynchronousPlanningParams *ASPP, CPoi
     CAxisPln Spln;
     Spln.OnSetFreq(ASPP->Freq);
 
-    return Spln.OnMovL_DualArm_FixBody(ASPP, Arm0_Pln_Path, Arm1_Pln_Path);
+    FX_BOOL result = Spln.OnMovL_DualArm_FixBody(ASPP, Arm0_Pln_Path, Arm1_Pln_Path);
+    if (result == FX_FALSE)
+    {
+        m_LastError = Spln.GetLastError();
+        return FX_FALSE;
+    }
+
+    m_LastError = FX_PLANNER_SUCCESS;
+    return FX_TRUE;
 }

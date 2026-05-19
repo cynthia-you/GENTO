@@ -1,6 +1,6 @@
 #include "FXMatrix.h"
 
-FX_VOID FX_Vect3Copy(Vect3 src, Vect3 dst)
+FX_VOID  FX_Vect3Copy(Vect3 src, Vect3 dst)
 {
 	FX_INT32 i = 0;
 	for (i = 0; i < 3; i++)
@@ -9,7 +9,7 @@ FX_VOID FX_Vect3Copy(Vect3 src, Vect3 dst)
 	}
 }
 
-FX_VOID FX_Vect4Copy(Vect4 src, Vect4 dst)
+FX_VOID  FX_Vect4Copy(Vect4 src, Vect4 dst)
 {
 	FX_INT32 i = 0;
 	for (i = 0; i < 4; i++)
@@ -17,7 +17,7 @@ FX_VOID FX_Vect4Copy(Vect4 src, Vect4 dst)
 		dst[i] = src[i];
 	}
 }
-FX_VOID FX_Vect6Copy(Vect6 src, Vect6 dst)
+FX_VOID  FX_Vect6Copy(Vect6 src, Vect6 dst)
 {
 	FX_INT32 i = 0;
 	for (i = 0; i < 6; i++)
@@ -42,7 +42,8 @@ FX_VOID FX_Vect8Copy(Vect8 src, Vect8 dst)
 	}
 }
 
-FX_VOID FX_Vect3Sub(Vect3 a, Vect3 b, Vect3 result)
+
+FX_VOID	FX_Vect3Sub(Vect3 a, Vect3 b, Vect3 result)
 {
 	FX_INT32 i;
 	for (i = 0; i < 3; i++)
@@ -51,7 +52,7 @@ FX_VOID FX_Vect3Sub(Vect3 a, Vect3 b, Vect3 result)
 	}
 }
 
-FX_VOID FX_Vect4Sub(Vect4 a, Vect4 b, Vect4 result)
+FX_VOID	FX_Vect4Sub(Vect4 a, Vect4 b, Vect4 result)
 {
 	FX_INT32 i;
 	for (i = 0; i < 4; i++)
@@ -60,7 +61,7 @@ FX_VOID FX_Vect4Sub(Vect4 a, Vect4 b, Vect4 result)
 	}
 }
 
-FX_VOID FX_Vect6Sub(Vect6 a, Vect6 b, Vect6 result)
+FX_VOID	FX_Vect6Sub(Vect6 a, Vect6 b, Vect6 result)
 {
 	FX_INT32 i;
 	for (i = 0; i < 6; i++)
@@ -69,7 +70,7 @@ FX_VOID FX_Vect6Sub(Vect6 a, Vect6 b, Vect6 result)
 	}
 }
 
-FX_VOID FX_Vect7Sub(Vect7 a, Vect7 b, Vect7 result)
+FX_VOID	FX_Vect7Sub(Vect7 a, Vect7 b, Vect7 result)
 {
 	FX_INT32 i;
 	for (i = 0; i < 7; i++)
@@ -78,7 +79,7 @@ FX_VOID FX_Vect7Sub(Vect7 a, Vect7 b, Vect7 result)
 	}
 }
 
-FX_VOID FX_Vect8Sub(Vect8 a, Vect8 b, Vect8 result)
+FX_VOID	FX_Vect8Sub(Vect8 a, Vect8 b, Vect8 result)
 {
 	FX_INT32 i;
 	for (i = 0; i < 8; i++)
@@ -87,21 +88,21 @@ FX_VOID FX_Vect8Sub(Vect8 a, Vect8 b, Vect8 result)
 	}
 }
 
-FX_VOID FX_Vect3Add(Vect3 a, Vect3 b, Vect3 result)
+FX_VOID	FX_Vect3Add(Vect3 a, Vect3 b, Vect3 result)
 {
 	result[0] = a[0] + b[0];
 	result[1] = a[1] + b[1];
 	result[2] = a[2] + b[2];
 }
 
-FX_VOID FX_Vect4Add(Vect4 a, Vect4 b, Vect4 result)
+FX_VOID	FX_Vect4Add(Vect4 a, Vect4 b, Vect4 result)
 {
 	result[0] = a[0] + b[0];
 	result[1] = a[1] + b[1];
 	result[2] = a[2] + b[2];
 	result[3] = a[3] + b[3];
 }
-FX_VOID FX_Vect6Add(Vect6 a, Vect6 b, Vect6 result)
+FX_VOID	FX_Vect6Add(Vect6 a, Vect6 b, Vect6 result)
 {
 	result[0] = a[0] + b[0];
 	result[1] = a[1] + b[1];
@@ -110,7 +111,7 @@ FX_VOID FX_Vect6Add(Vect6 a, Vect6 b, Vect6 result)
 	result[4] = a[4] + b[4];
 	result[5] = a[5] + b[5];
 }
-FX_VOID FX_Vect7Add(Vect7 a, Vect7 b, Vect7 result)
+FX_VOID	FX_Vect7Add(Vect7 a, Vect7 b, Vect7 result)
 {
 	result[0] = a[0] + b[0];
 	result[1] = a[1] + b[1];
@@ -120,7 +121,7 @@ FX_VOID FX_Vect7Add(Vect7 a, Vect7 b, Vect7 result)
 	result[5] = a[5] + b[5];
 	result[6] = a[6] + b[6];
 }
-FX_VOID FX_Vect8Add(Vect8 a, Vect8 b, Vect8 result)
+FX_VOID	FX_Vect8Add(Vect8 a, Vect8 b, Vect8 result)
 {
 	result[0] = a[0] + b[0];
 	result[1] = a[1] + b[1];
@@ -132,20 +133,22 @@ FX_VOID FX_Vect8Add(Vect8 a, Vect8 b, Vect8 result)
 	result[7] = a[7] + b[7];
 }
 
-FX_VOID FX_Vect3AddToA(Vect3 a, Vect3 b)
+
+
+FX_VOID	FX_Vect3AddToA(Vect3 a, Vect3 b)
 {
 	a[0] += b[0];
 	a[1] += b[1];
 	a[2] += b[2];
 }
-FX_VOID FX_Vect4AddToA(Vect4 a, Vect4 b)
+FX_VOID	FX_Vect4AddToA(Vect4 a, Vect4 b)
 {
 	a[0] += b[0];
 	a[1] += b[1];
 	a[2] += b[2];
 	a[3] += b[3];
 }
-FX_VOID FX_Vect6AddToA(Vect6 a, Vect6 b)
+FX_VOID	FX_Vect6AddToA(Vect6 a, Vect6 b)
 {
 	a[0] += b[0];
 	a[1] += b[1];
@@ -154,7 +157,7 @@ FX_VOID FX_Vect6AddToA(Vect6 a, Vect6 b)
 	a[4] += b[4];
 	a[5] += b[5];
 }
-FX_VOID FX_Vect7AddToA(Vect7 a, Vect7 b)
+FX_VOID	FX_Vect7AddToA(Vect7 a, Vect7 b)
 {
 	a[0] += b[0];
 	a[1] += b[1];
@@ -164,7 +167,7 @@ FX_VOID FX_Vect7AddToA(Vect7 a, Vect7 b)
 	a[5] += b[5];
 	a[6] += b[6];
 }
-FX_VOID FX_Vect8AddToA(Vect8 a, Vect8 b)
+FX_VOID	FX_Vect8AddToA(Vect8 a, Vect8 b)
 {
 	a[0] += b[0];
 	a[1] += b[1];
@@ -176,70 +179,62 @@ FX_VOID FX_Vect8AddToA(Vect8 a, Vect8 b)
 	a[7] += b[7];
 }
 
-FX_VOID FX_IdentM33(Matrix3 m)
+
+FX_VOID  FX_IdentM33(Matrix3 m)
 {
 	FX_INT32 i, j;
-	for (i = 0; i < 3; i++)
-	{
-		for (j = 0; j < 3; j++)
-		{
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
 			m[i][j] = 0;
 		}
 		m[i][i] = 1;
 	}
 }
 
-FX_VOID FX_IdentM44(Matrix4 m)
+FX_VOID  FX_IdentM44(Matrix4 m)
 {
 	FX_INT32 i, j;
-	for (i = 0; i < 4; i++)
-	{
-		for (j = 0; j < 4; j++)
-		{
+	for (i = 0; i < 4; i++) {
+		for (j = 0; j < 4; j++) {
 			m[i][j] = 0;
 		}
 		m[i][i] = 1;
 	}
 }
 
-FX_VOID FX_IdentM66(Matrix6 m)
+FX_VOID	FX_IdentM66(Matrix6 m)
 {
 	FX_INT32 i, j;
-	for (i = 0; i < 6; i++)
-	{
-		for (j = 0; j < 6; j++)
-		{
+	for (i = 0; i < 6; i++) {
+		for (j = 0; j < 6; j++) {
 			m[i][j] = 0;
 		}
 		m[i][i] = 1;
 	}
 }
-FX_VOID FX_IdentM77(Matrix7 m)
+FX_VOID	FX_IdentM77(Matrix7 m)
 {
 	FX_INT32 i, j;
-	for (i = 0; i < 7; i++)
-	{
-		for (j = 0; j < 7; j++)
-		{
+	for (i = 0; i < 7; i++) {
+		for (j = 0; j < 7; j++) {
 			m[i][j] = 0;
 		}
 		m[i][i] = 1;
 	}
 }
-FX_VOID FX_IdentM88(Matrix8 m)
+FX_VOID	FX_IdentM88(Matrix8 m)
 {
 	FX_INT32 i, j;
-	for (i = 0; i < 8; i++)
-	{
-		for (j = 0; j < 8; j++)
-		{
+	for (i = 0; i < 8; i++) {
+		for (j = 0; j < 8; j++) {
 			m[i][j] = 0;
 		}
 		m[i][i] = 1;
 	}
 }
 
-FX_VOID FX_M33Copy(Matrix3 src, Matrix3 dst)
+
+FX_VOID  FX_M33Copy(Matrix3 src, Matrix3 dst)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 3; i++)
@@ -250,7 +245,7 @@ FX_VOID FX_M33Copy(Matrix3 src, Matrix3 dst)
 		}
 	}
 }
-FX_VOID FX_M44Copy(Matrix4 src, Matrix4 dst)
+FX_VOID	FX_M44Copy(Matrix4 src, Matrix4 dst)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 4; i++)
@@ -261,7 +256,7 @@ FX_VOID FX_M44Copy(Matrix4 src, Matrix4 dst)
 		}
 	}
 }
-FX_VOID FX_M66Copy(Matrix6 src, Matrix6 dst)
+FX_VOID	FX_M66Copy(Matrix6 src, Matrix6 dst)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 6; i++)
@@ -272,7 +267,7 @@ FX_VOID FX_M66Copy(Matrix6 src, Matrix6 dst)
 		}
 	}
 }
-FX_VOID FX_M77Copy(Matrix7 src, Matrix7 dst)
+FX_VOID	FX_M77Copy(Matrix7 src, Matrix7 dst)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 7; i++)
@@ -283,7 +278,7 @@ FX_VOID FX_M77Copy(Matrix7 src, Matrix7 dst)
 		}
 	}
 }
-FX_VOID FX_M88Copy(Matrix8 src, Matrix8 dst)
+FX_VOID	FX_M88Copy(Matrix8 src, Matrix8 dst)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 8; i++)
@@ -295,7 +290,7 @@ FX_VOID FX_M88Copy(Matrix8 src, Matrix8 dst)
 	}
 }
 
-FX_VOID FX_M67Copy(Matrix67 src, Matrix67 dst)
+FX_VOID	FX_M67Copy(Matrix67 src, Matrix67 dst)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 6; i++)
@@ -306,7 +301,7 @@ FX_VOID FX_M67Copy(Matrix67 src, Matrix67 dst)
 		}
 	}
 }
-FX_VOID FX_M76Copy(Matrix76 src, Matrix76 dst)
+FX_VOID	FX_M76Copy(Matrix76 src, Matrix76 dst)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 7; i++)
@@ -318,7 +313,7 @@ FX_VOID FX_M76Copy(Matrix76 src, Matrix76 dst)
 	}
 }
 
-FX_VOID FX_M33Trans(Matrix3 Org, Matrix3 Result)
+FX_VOID  FX_M33Trans(Matrix3 Org, Matrix3 Result)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 3; i++)
@@ -330,7 +325,7 @@ FX_VOID FX_M33Trans(Matrix3 Org, Matrix3 Result)
 	}
 }
 
-FX_VOID FX_M44Trans(Matrix4 Org, Matrix4 Result)
+FX_VOID	FX_M44Trans(Matrix4 Org, Matrix4 Result)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 4; i++)
@@ -341,7 +336,7 @@ FX_VOID FX_M44Trans(Matrix4 Org, Matrix4 Result)
 		}
 	}
 }
-FX_VOID FX_M66Trans(Matrix6 Org, Matrix6 Result)
+FX_VOID	FX_M66Trans(Matrix6 Org, Matrix6 Result)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 6; i++)
@@ -352,7 +347,7 @@ FX_VOID FX_M66Trans(Matrix6 Org, Matrix6 Result)
 		}
 	}
 }
-FX_VOID FX_M77Trans(Matrix7 Org, Matrix7 Result)
+FX_VOID	FX_M77Trans(Matrix7 Org, Matrix7 Result)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 7; i++)
@@ -363,7 +358,7 @@ FX_VOID FX_M77Trans(Matrix7 Org, Matrix7 Result)
 		}
 	}
 }
-FX_VOID FX_M88Trans(Matrix8 Org, Matrix8 Result)
+FX_VOID	FX_M88Trans(Matrix8 Org, Matrix8 Result)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 8; i++)
@@ -375,7 +370,7 @@ FX_VOID FX_M88Trans(Matrix8 Org, Matrix8 Result)
 	}
 }
 
-FX_VOID FX_MMV4(Matrix4 L, Vect4 R, Vect4 Result)
+FX_VOID	FX_MMV4(Matrix4 L, Vect4 R, Vect4 Result)
 {
 	FX_INT32 i, k;
 	for (i = 0; i < 4; i++)
@@ -387,7 +382,7 @@ FX_VOID FX_MMV4(Matrix4 L, Vect4 R, Vect4 Result)
 		}
 	}
 }
-FX_VOID FX_MMV6(Matrix6 L, Vect6 R, Vect6 Result)
+FX_VOID	FX_MMV6(Matrix6 L, Vect6 R, Vect6 Result)
 {
 	FX_INT32 i, k;
 	for (i = 0; i < 6; i++)
@@ -399,7 +394,7 @@ FX_VOID FX_MMV6(Matrix6 L, Vect6 R, Vect6 Result)
 		}
 	}
 }
-FX_VOID FX_MMV7(Matrix7 L, Vect7 R, Vect7 Result)
+FX_VOID	FX_MMV7(Matrix7 L, Vect7 R, Vect7 Result)
 {
 	FX_INT32 i, k;
 	for (i = 0; i < 7; i++)
@@ -411,7 +406,7 @@ FX_VOID FX_MMV7(Matrix7 L, Vect7 R, Vect7 Result)
 		}
 	}
 }
-FX_VOID FX_MVM677(Matrix67 L, Vect7 R, Vect6 Result)
+FX_VOID	FX_MVM677(Matrix67 L, Vect7 R, Vect6 Result)
 {
 	FX_INT32 i, k;
 	for (i = 0; i < 6; i++)
@@ -424,7 +419,8 @@ FX_VOID FX_MVM677(Matrix67 L, Vect7 R, Vect6 Result)
 	}
 }
 
-FX_VOID FX_MVM766(Matrix76 L, Vect6 R, Vect7 Result)
+
+FX_VOID	FX_MVM766(Matrix76 L, Vect6 R, Vect7 Result)
 {
 	FX_INT32 i, k;
 	for (i = 0; i < 7; i++)
@@ -437,7 +433,8 @@ FX_VOID FX_MVM766(Matrix76 L, Vect6 R, Vect7 Result)
 	}
 }
 
-FX_VOID FX_MMV8(Matrix8 L, Vect8 R, Vect8 Result)
+
+FX_VOID	FX_MMV8(Matrix8 L, Vect8 R, Vect8 Result)
 {
 	FX_INT32 i, k;
 	for (i = 0; i < 8; i++)
@@ -450,7 +447,7 @@ FX_VOID FX_MMV8(Matrix8 L, Vect8 R, Vect8 Result)
 	}
 }
 
-FX_VOID FX_MVM666(Vect6 L, Matrix6 R, Vect6 Result)
+FX_VOID	FX_MVM666(Vect6 L, Matrix6 R, Vect6 Result)
 {
 	FX_INT32 i, k;
 	for (i = 0; i < 6; i++)
@@ -462,7 +459,7 @@ FX_VOID FX_MVM666(Vect6 L, Matrix6 R, Vect6 Result)
 		}
 	}
 }
-FX_VOID FX_MVM777(Vect7 L, Matrix7 R, Vect7 Result)
+FX_VOID	FX_MVM777(Vect7 L, Matrix7 R, Vect7 Result)
 {
 	FX_INT32 i, k;
 	for (i = 0; i < 7; i++)
@@ -474,6 +471,9 @@ FX_VOID FX_MVM777(Vect7 L, Matrix7 R, Vect7 Result)
 		}
 	}
 }
+
+
+
 
 FX_VOID FX_MAddM33(Matrix3 L, Matrix3 R, Matrix3 Result)
 {
@@ -531,7 +531,8 @@ FX_VOID FX_MAddM88(Matrix8 L, Matrix8 R, Matrix8 Result)
 	}
 }
 
-FX_VOID FX_MMM33(Matrix3 L, Matrix3 R, Matrix3 Result)
+
+FX_VOID	FX_MMM33(Matrix3 L, Matrix3 R, Matrix3 Result)
 {
 	FX_INT32 i, j, k;
 	for (i = 0; i < 3; i++)
@@ -547,7 +548,7 @@ FX_VOID FX_MMM33(Matrix3 L, Matrix3 R, Matrix3 Result)
 	}
 }
 
-FX_VOID FX_MMM44(Matrix4 L, Matrix4 R, Matrix4 Result)
+FX_VOID	FX_MMM44(Matrix4 L, Matrix4 R, Matrix4 Result)
 {
 	FX_INT32 i, j, k;
 	for (i = 0; i < 4; i++)
@@ -563,7 +564,7 @@ FX_VOID FX_MMM44(Matrix4 L, Matrix4 R, Matrix4 Result)
 	}
 }
 
-FX_VOID FX_MMM66(Matrix6 L, Matrix6 R, Matrix6 Result)
+FX_VOID	FX_MMM66(Matrix6 L, Matrix6 R, Matrix6 Result)
 {
 	FX_INT32 i, j, k;
 	for (i = 0; i < 6; i++)
@@ -579,7 +580,7 @@ FX_VOID FX_MMM66(Matrix6 L, Matrix6 R, Matrix6 Result)
 	}
 }
 
-FX_VOID FX_MMM77(Matrix7 L, Matrix7 R, Matrix7 Result)
+FX_VOID	FX_MMM77(Matrix7 L, Matrix7 R, Matrix7 Result)
 {
 	FX_INT32 i, j, k;
 	for (i = 0; i < 7; i++)
@@ -595,7 +596,7 @@ FX_VOID FX_MMM77(Matrix7 L, Matrix7 R, Matrix7 Result)
 	}
 }
 
-FX_VOID FX_MMM88(Matrix8 L, Matrix8 R, Matrix8 Result)
+FX_VOID	FX_MMM88(Matrix8 L, Matrix8 R, Matrix8 Result)
 {
 	FX_INT32 i, j, k;
 	for (i = 0; i < 8; i++)
@@ -611,7 +612,7 @@ FX_VOID FX_MMM88(Matrix8 L, Matrix8 R, Matrix8 Result)
 	}
 }
 
-FX_VOID FX_MMM6776(Matrix67 L, Matrix76 R, Matrix6 Result)
+FX_VOID	FX_MMM6776(Matrix67 L, Matrix76 R, Matrix6 Result)
 {
 	FX_INT32 i, j, k;
 	for (i = 0; i < 6; i++)
@@ -627,7 +628,8 @@ FX_VOID FX_MMM6776(Matrix67 L, Matrix76 R, Matrix6 Result)
 	}
 }
 
-FX_VOID FX_MMM7667(Matrix76 L, Matrix67 R, Matrix7 Result)
+
+FX_VOID	FX_MMM7667(Matrix76 L, Matrix67 R, Matrix7 Result)
 {
 	FX_INT32 i, j, k;
 	for (i = 0; i < 7; i++)
@@ -643,7 +645,7 @@ FX_VOID FX_MMM7667(Matrix76 L, Matrix67 R, Matrix7 Result)
 	}
 }
 
-FX_VOID FX_MMM6777(Matrix67 L, Matrix7 R, Matrix67 Result)
+FX_VOID	FX_MMM6777(Matrix67 L, Matrix7 R, Matrix67 Result)
 {
 	FX_INT32 i, j, k;
 	for (i = 0; i < 6; i++)
@@ -659,19 +661,19 @@ FX_VOID FX_MMM6777(Matrix67 L, Matrix7 R, Matrix67 Result)
 	}
 }
 
-FX_BOOL MatrixInv33(Matrix3 orgm, Matrix3 invm)
+FX_BOOL	MatrixInv33(Matrix3 orgm, Matrix3 invm)
 {
 	FX_INT32 m = 3;
 	FX_DOUBLE P[10];
 	Matrix3 A;
-	Vect3 temp;
+	Vect3   temp;
 	FX_M33Copy(orgm, A);
 	{
 		FX_INT32 i, j, k, imax;
 		FX_DOUBLE maxA, absA;
 		for (i = 0; i < m; i++)
 		{
-			P[i] = i; // Unit permutation matrix, P[m] initialized with m
+			P[i] = i; //Unit permutation matrix, P[m] initialized with m
 		}
 		P[m] = 0;
 
@@ -695,14 +697,13 @@ FX_BOOL MatrixInv33(Matrix3 orgm, Matrix3 invm)
 				return FX_FALSE;
 			}
 
-			if (imax != i)
-			{
-				// pivoting P
+			if (imax != i) {
+				//pivoting P
 				temp[0] = P[i];
 				P[i] = P[imax];
 				P[imax] = temp[0];
 
-				// pivoting rows of A
+				//pivoting rows of A
 				if (i == 0)
 				{
 					FX_Vect3Copy(A[imax], temp);
@@ -728,6 +729,7 @@ FX_BOOL MatrixInv33(Matrix3 orgm, Matrix3 invm)
 					A[j][k] -= A[j][i] * A[i][k];
 				}
 			}
+
 		}
 	}
 	{
@@ -757,19 +759,19 @@ FX_BOOL MatrixInv33(Matrix3 orgm, Matrix3 invm)
 	return FX_TRUE;
 }
 
-FX_BOOL MatrixInv44(Matrix4 orgm, Matrix4 invm)
+FX_BOOL	MatrixInv44(Matrix4 orgm, Matrix4 invm)
 {
 	FX_INT32 m = 4;
 	FX_DOUBLE P[10];
 	Matrix4 A;
-	Vect4 temp;
+	Vect4   temp;
 	FX_M44Copy(orgm, A);
 	{
 		FX_INT32 i, j, k, imax;
 		FX_DOUBLE maxA, absA;
 		for (i = 0; i < m; i++)
 		{
-			P[i] = i; // Unit permutation matrix, P[m] initialized with m
+			P[i] = i; //Unit permutation matrix, P[m] initialized with m
 		}
 		P[m] = 0;
 
@@ -793,14 +795,13 @@ FX_BOOL MatrixInv44(Matrix4 orgm, Matrix4 invm)
 				return FX_FALSE;
 			}
 
-			if (imax != i)
-			{
-				// pivoting P
+			if (imax != i) {
+				//pivoting P
 				temp[0] = P[i];
 				P[i] = P[imax];
 				P[imax] = temp[0];
 
-				// pivoting rows of A
+				//pivoting rows of A
 				if (i == 0)
 				{
 					FX_Vect4Copy(A[imax], temp);
@@ -826,6 +827,7 @@ FX_BOOL MatrixInv44(Matrix4 orgm, Matrix4 invm)
 					A[j][k] -= A[j][i] * A[i][k];
 				}
 			}
+
 		}
 	}
 	{
@@ -855,19 +857,20 @@ FX_BOOL MatrixInv44(Matrix4 orgm, Matrix4 invm)
 	return FX_TRUE;
 }
 
-FX_BOOL MatrixInv66(Matrix6 orgm, Matrix6 invm)
+
+FX_BOOL	MatrixInv66(Matrix6 orgm, Matrix6 invm)
 {
 	FX_INT32 m = 6;
 	FX_DOUBLE P[10];
 	Matrix6 A;
-	Vect6 temp;
+	Vect6   temp;
 	FX_M66Copy(orgm, A);
 	{
 		FX_INT32 i, j, k, imax;
 		FX_DOUBLE maxA, absA;
 		for (i = 0; i < m; i++)
 		{
-			P[i] = i; // Unit permutation matrix, P[m] initialized with m
+			P[i] = i; //Unit permutation matrix, P[m] initialized with m
 		}
 		P[m] = 0;
 
@@ -891,14 +894,13 @@ FX_BOOL MatrixInv66(Matrix6 orgm, Matrix6 invm)
 				return FX_FALSE;
 			}
 
-			if (imax != i)
-			{
-				// pivoting P
+			if (imax != i) {
+				//pivoting P
 				temp[0] = P[i];
 				P[i] = P[imax];
 				P[imax] = temp[0];
 
-				// pivoting rows of A
+				//pivoting rows of A
 				if (i == 0)
 				{
 					FX_Vect6Copy(A[imax], temp);
@@ -924,6 +926,7 @@ FX_BOOL MatrixInv66(Matrix6 orgm, Matrix6 invm)
 					A[j][k] -= A[j][i] * A[i][k];
 				}
 			}
+
 		}
 	}
 	{
@@ -952,19 +955,19 @@ FX_BOOL MatrixInv66(Matrix6 orgm, Matrix6 invm)
 	}
 	return FX_TRUE;
 }
-FX_BOOL MatrixInv77(Matrix7 orgm, Matrix7 invm)
+FX_BOOL	MatrixInv77(Matrix7 orgm, Matrix7 invm)
 {
 	FX_INT32 m = 7;
 	FX_DOUBLE P[10];
 	Matrix7 A;
-	Vect7 temp;
+	Vect7   temp;
 	FX_M77Copy(orgm, A);
 	{
 		FX_INT32 i, j, k, imax;
 		FX_DOUBLE maxA, absA;
 		for (i = 0; i < m; i++)
 		{
-			P[i] = i; // Unit permutation matrix, P[m] initialized with m
+			P[i] = i; //Unit permutation matrix, P[m] initialized with m
 		}
 		P[m] = 0;
 
@@ -988,14 +991,13 @@ FX_BOOL MatrixInv77(Matrix7 orgm, Matrix7 invm)
 				return FX_FALSE;
 			}
 
-			if (imax != i)
-			{
-				// pivoting P
+			if (imax != i) {
+				//pivoting P
 				temp[0] = P[i];
 				P[i] = P[imax];
 				P[imax] = temp[0];
 
-				// pivoting rows of A
+				//pivoting rows of A
 				if (i == 0)
 				{
 					FX_Vect7Copy(A[imax], temp);
@@ -1021,6 +1023,7 @@ FX_BOOL MatrixInv77(Matrix7 orgm, Matrix7 invm)
 					A[j][k] -= A[j][i] * A[i][k];
 				}
 			}
+
 		}
 	}
 	{
@@ -1049,19 +1052,19 @@ FX_BOOL MatrixInv77(Matrix7 orgm, Matrix7 invm)
 	}
 	return FX_TRUE;
 }
-FX_BOOL MatrixInv88(Matrix8 orgm, Matrix8 invm)
+FX_BOOL	MatrixInv88(Matrix8 orgm, Matrix8 invm)
 {
 	FX_INT32 m = 8;
 	FX_DOUBLE P[10];
 	Matrix8 A;
-	Vect8 temp;
+	Vect8   temp;
 	FX_M88Copy(orgm, A);
 	{
 		FX_INT32 i, j, k, imax;
 		FX_DOUBLE maxA, absA;
 		for (i = 0; i < m; i++)
 		{
-			P[i] = i; // Unit permutation matrix, P[m] initialized with m
+			P[i] = i; //Unit permutation matrix, P[m] initialized with m
 		}
 		P[m] = 0;
 
@@ -1085,14 +1088,13 @@ FX_BOOL MatrixInv88(Matrix8 orgm, Matrix8 invm)
 				return FX_FALSE;
 			}
 
-			if (imax != i)
-			{
-				// pivoting P
+			if (imax != i) {
+				//pivoting P
 				temp[0] = P[i];
 				P[i] = P[imax];
 				P[imax] = temp[0];
 
-				// pivoting rows of A
+				//pivoting rows of A
 				if (i == 0)
 				{
 					FX_Vect8Copy(A[imax], temp);
@@ -1118,6 +1120,7 @@ FX_BOOL MatrixInv88(Matrix8 orgm, Matrix8 invm)
 					A[j][k] -= A[j][i] * A[i][k];
 				}
 			}
+
 		}
 	}
 	{
@@ -1146,7 +1149,7 @@ FX_BOOL MatrixInv88(Matrix8 orgm, Matrix8 invm)
 	}
 	return FX_TRUE;
 }
-FX_BOOL MatrixInvDP33(Matrix3 m, FX_DOUBLE r, Matrix3 invm)
+FX_BOOL	MatrixInvDP33(Matrix3 m, FX_DOUBLE r, Matrix3 invm)
 {
 	Matrix3 mt;
 	Matrix3 a;
@@ -1166,7 +1169,7 @@ FX_BOOL MatrixInvDP33(Matrix3 m, FX_DOUBLE r, Matrix3 invm)
 	return FX_TRUE;
 }
 
-FX_BOOL MatrixInvDP44(Matrix4 m, FX_DOUBLE r, Matrix4 invm)
+FX_BOOL	MatrixInvDP44(Matrix4 m, FX_DOUBLE r, Matrix4 invm)
 {
 	Matrix4 mt;
 	Matrix4 a;
@@ -1185,7 +1188,7 @@ FX_BOOL MatrixInvDP44(Matrix4 m, FX_DOUBLE r, Matrix4 invm)
 	FX_MMM44(mt, ia, invm);
 	return FX_TRUE;
 }
-FX_BOOL MatrixInvDP66(Matrix6 m, FX_DOUBLE r, Matrix6 invm)
+FX_BOOL	MatrixInvDP66(Matrix6 m, FX_DOUBLE r, Matrix6 invm)
 {
 	Matrix6 mt;
 	Matrix6 a;
@@ -1204,7 +1207,7 @@ FX_BOOL MatrixInvDP66(Matrix6 m, FX_DOUBLE r, Matrix6 invm)
 	FX_MMM66(mt, ia, invm);
 	return FX_TRUE;
 }
-FX_BOOL MatrixInvDP77(Matrix7 m, FX_DOUBLE r, Matrix7 invm)
+FX_BOOL	MatrixInvDP77(Matrix7 m, FX_DOUBLE r, Matrix7 invm)
 {
 	Matrix7 mt;
 	Matrix7 a;
@@ -1223,7 +1226,7 @@ FX_BOOL MatrixInvDP77(Matrix7 m, FX_DOUBLE r, Matrix7 invm)
 	FX_MMM77(mt, ia, invm);
 	return FX_TRUE;
 }
-FX_BOOL MatrixInvDP88(Matrix8 m, FX_DOUBLE r, Matrix8 invm)
+FX_BOOL	MatrixInvDP88(Matrix8 m, FX_DOUBLE r, Matrix8 invm)
 {
 	Matrix8 mt;
 	Matrix8 a;
@@ -1242,6 +1245,8 @@ FX_BOOL MatrixInvDP88(Matrix8 m, FX_DOUBLE r, Matrix8 invm)
 	FX_MMM88(mt, ia, invm);
 	return FX_TRUE;
 }
+
+
 
 FX_VOID SVD_CALP(FX_DOUBLE a[], FX_DOUBLE e[], FX_DOUBLE s[], FX_DOUBLE v[], FX_INT32 m, FX_INT32 n)
 {
@@ -1264,21 +1269,17 @@ FX_VOID SVD_CALP(FX_DOUBLE a[], FX_DOUBLE e[], FX_DOUBLE s[], FX_DOUBLE v[], FX_
 		{
 			p = (i - 1) * n + j - 1;
 			q = (j - 1) * n + i - 1;
-			d = v[p];
-			v[p] = v[q];
-			v[q] = d;
+			d = v[p]; v[p] = v[q]; v[q] = d;
 		}
 	return;
 }
 FX_VOID SVD_CALS(FX_DOUBLE fg[2], FX_DOUBLE cs[2])
 {
 	FX_DOUBLE r, d;
-	// if((FX_Fabs(fg[0])+FX_Fabs(fg[1]))==0.0)
+	//if((FX_Fabs(fg[0])+FX_Fabs(fg[1]))==0.0)
 	if ((FX_Fabs(fg[0]) + FX_Fabs(fg[1])) < FXARM_EPS)
 	{
-		cs[0] = 1.0;
-		cs[1] = 0.0;
-		d = 0.0;
+		cs[0] = 1.0; cs[1] = 0.0; d = 0.0;
 	}
 	else
 	{
@@ -1302,7 +1303,7 @@ FX_VOID SVD_CALS(FX_DOUBLE fg[2], FX_DOUBLE cs[2])
 	if (FX_Fabs(fg[0]) > FX_Fabs(fg[1]))
 		r = cs[1];
 	else
-		// if(cs[0]!=0.0)
+		//if(cs[0]!=0.0)
 		if (FX_Fabs(cs[0]) > FXARM_EPS)
 			r = 1.0 / cs[0];
 	fg[0] = d;
@@ -1326,18 +1327,14 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 		iy = (i - 1) * n + i - 1;
 		v[iy] = 0;
 	}
-	it = SVD_MAX_IT_NUM;
-	k = n;
+	it = SVD_MAX_IT_NUM; k = n;
 	if (m - 1 < n)
 		k = m - 1;
 	l = m;
-	if (n - 2 < m)
-		l = n - 2;
-	if (l < 0)
-		l = 0;
+	if (n - 2 < m) l = n - 2;
+	if (l < 0) l = 0;
 	ll = k;
-	if (l > k)
-		ll = l;
+	if (l > k) ll = l;
 	if (ll >= 1)
 	{
 		for (kk = 1; kk <= ll; kk++)
@@ -1347,20 +1344,18 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 				d = 0.0;
 				for (i = kk; i <= m; i++)
 				{
-					ix = (i - 1) * n + kk - 1;
-					d = d + a[ix] * a[ix];
+					ix = (i - 1) * n + kk - 1; d = d + a[ix] * a[ix];
 				}
 				s[kk - 1] = FX_Sqrt(d);
-				// if(s[kk-1]!=0.0)
+				//if(s[kk-1]!=0.0)
 				if (FX_Fabs(s[kk - 1]) > FXARM_EPS)
 				{
 					ix = (kk - 1) * n + kk - 1;
-					// if(a[ix]!=0.0)
+					//if(a[ix]!=0.0)
 					if (FX_Fabs(a[ix]) > FXARM_EPS)
 					{
 						s[kk - 1] = FX_Fabs(s[kk - 1]);
-						if (a[ix] < 0.0)
-							s[kk - 1] = -s[kk - 1];
+						if (a[ix] < 0.0) s[kk - 1] = -s[kk - 1];
 					}
 					for (i = kk; i <= m; i++)
 					{
@@ -1375,7 +1370,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 			{
 				for (j = kk + 1; j <= n; j++)
 				{
-					// if((kk<=k)&&(s[kk-1]!=0.0))
+					//if((kk<=k)&&(s[kk-1]!=0.0))
 					if ((kk <= k) && (FX_Fabs(s[kk - 1]) > FXARM_EPS))
 					{
 						d = 0.0;
@@ -1400,8 +1395,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 			{
 				for (i = kk; i <= m; i++)
 				{
-					ix = (i - 1) * m + kk - 1;
-					iy = (i - 1) * n + kk - 1;
+					ix = (i - 1) * m + kk - 1; iy = (i - 1) * n + kk - 1;
 					u[ix] = a[iy];
 				}
 			}
@@ -1411,10 +1405,10 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 				for (i = kk + 1; i <= n; i++)
 					d = d + e[i - 1] * e[i - 1];
 				e[kk - 1] = FX_Sqrt(d);
-				// if(e[kk-1]!=0.0)
+				//if(e[kk-1]!=0.0)
 				if (FX_Fabs(e[kk - 1]) > FXARM_EPS)
 				{
-					// if(e[kk]!=0.0)
+					//if(e[kk]!=0.0)
 					if (FX_Fabs(e[kk]) > FXARM_EPS)
 					{
 						e[kk - 1] = FX_Fabs(e[kk - 1]);
@@ -1426,11 +1420,10 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 					e[kk] = 1.0 + e[kk];
 				}
 				e[kk - 1] = -e[kk - 1];
-				// if((kk+1<=m)&&(e[kk-1]!=0.0))
+				//if((kk+1<=m)&&(e[kk-1]!=0.0))
 				if ((kk + 1 <= m) && (FX_Fabs(e[kk - 1]) > FXARM_EPS))
 				{
-					for (i = kk + 1; i <= m; i++)
-						w[i - 1] = 0.0;
+					for (i = kk + 1; i <= m; i++) w[i - 1] = 0.0;
 					for (j = kk + 1; j <= n; j++)
 						for (i = kk + 1; i <= m; i++)
 							w[i - 1] = w[i - 1] + e[j - 1] * a[(i - 1) * n + j - 1];
@@ -1447,18 +1440,13 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 		}
 	}
 	mm = n;
-	if (m + 1 < n)
-		mm = m + 1;
-	if (k < n)
-		s[k] = a[k * n + k];
-	if (m < mm)
-		s[mm - 1] = 0.0;
-	if (l + 1 < mm)
-		e[l] = a[l * n + mm - 1];
+	if (m + 1 < n) mm = m + 1;
+	if (k < n) s[k] = a[k * n + k];
+	if (m < mm) s[mm - 1] = 0.0;
+	if (l + 1 < mm) e[l] = a[l * n + mm - 1];
 	e[mm - 1] = 0.0;
 	nn = m;
-	if (m > n)
-		nn = n;
+	if (m > n) nn = n;
 	if (nn >= k + 1)
 	{
 		for (j = k + 1; j <= nn; j++)
@@ -1468,13 +1456,12 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 			u[(j - 1) * m + j - 1] = 1.0;
 		}
 	}
-	if (k >= 1) /////////////////////////////////
+	if (k >= 1)/////////////////////////////////
 	{
 		for (ll = 1; ll <= k; ll++)
 		{
-			kk = k - ll + 1;
-			iz = (kk - 1) * m + kk - 1;
-			// if(s[kk-1]!=0.0)
+			kk = k - ll + 1; iz = (kk - 1) * m + kk - 1;
+			//if(s[kk-1]!=0.0)
 			if (FX_Fabs(s[kk - 1]) > FXARM_EPS)
 			{
 				if (nn >= kk + 1)
@@ -1501,7 +1488,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 					u[ix] = -u[ix];
 				}
 				u[iz] = 1.0 + u[iz];
-				if (kk - 1 >= 1) //////////////////////////////////////
+				if (kk - 1 >= 1)//////////////////////////////////////
 					for (i = 1; i <= kk - 1; i++)
 						u[(i - 1) * m + kk - 1] = 0.0;
 			}
@@ -1515,9 +1502,8 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 	}
 	for (ll = 1; ll <= n; ll++)
 	{
-		kk = n - ll + 1;
-		iz = kk * n + kk - 1;
-		// if((kk<=l)&&(e[kk-1]!=0.0))/////////////////////////////
+		kk = n - ll + 1; iz = kk * n + kk - 1;
+		//if((kk<=l)&&(e[kk-1]!=0.0))/////////////////////////////
 		if ((kk <= l) && (FX_Fabs(e[kk - 1]) > FXARM_EPS))
 		{
 			for (j = kk + 1; j <= n; j++)
@@ -1525,15 +1511,13 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 				d = 0.0;
 				for (i = kk + 1; i <= n; i++)
 				{
-					ix = (i - 1) * n + kk - 1;
-					iy = (i - 1) * n + j - 1;
+					ix = (i - 1) * n + kk - 1; iy = (i - 1) * n + j - 1;
 					d = d + v[ix] * v[iy] / v[iz];
 				}
 				d = -d;
 				for (i = kk + 1; i <= n; i++)
 				{
-					ix = (i - 1) * n + j - 1;
-					iy = (i - 1) * n + kk - 1;
+					ix = (i - 1) * n + j - 1; iy = (i - 1) * n + kk - 1;
 					v[ix] = v[ix] + d * v[iy];
 				}
 			}
@@ -1547,7 +1531,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 			a[(i - 1) * n + j - 1] = 0.0;
 	ml = mm;
 	it = SVD_MAX_IT_NUM;
-	while (1 == 1) //////////////////////////////////
+	while (1 == 1)//////////////////////////////////
 	{
 		if (mm == 0)
 		{
@@ -1583,26 +1567,19 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 			}
 			while ((kk != ml) && (s[kk - 1] < s[kk]))
 			{
-				d = s[kk - 1];
-				s[kk - 1] = s[kk];
-				s[kk] = d;
+				d = s[kk - 1]; s[kk - 1] = s[kk]; s[kk] = d;
 				if (kk < n)
 					for (i = 1; i <= n; i++)
 					{
-						ix = (i - 1) * n + kk - 1;
-						iy = (i - 1) * n + kk;
-						d = v[ix];
-						v[ix] = v[iy];
-						v[iy] = d;
+						ix = (i - 1) * n + kk - 1; iy = (i - 1) * n + kk;
+						d = v[ix]; v[ix] = v[iy]; v[iy] = d;
 					}
 				if (kk < m)
 					for (i = 1; i <= m; i++)
 					{
 						ix = (i - 1) * m + kk - 1;
 						iy = (i - 1) * m + kk;
-						d = u[ix];
-						u[ix] = u[iy];
-						u[iy] = d;
+						d = u[ix]; u[ix] = u[iy]; u[iy] = d;
 					}
 				kk = kk + 1;
 			}
@@ -1617,8 +1594,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 				d = 0.0;
 				if (ks != mm)
 					d = d + FX_Fabs(e[ks - 1]);
-				if (ks != kk + 1)
-					d = d + FX_Fabs(e[ks - 2]);
+				if (ks != kk + 1) d = d + FX_Fabs(e[ks - 2]);
 				dd = FX_Fabs(s[ks - 1]);
 				if (dd > eps * d)
 					ks = ks - 1;
@@ -1641,16 +1617,12 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 				t = FX_Fabs(e[kk - 1]);
 				if (t > d)
 					d = t;
-				sm = s[mm - 1] / d;
-				sml = s[mm - 2] / d;
+				sm = s[mm - 1] / d; sml = s[mm - 2] / d;
 				eml = e[mm - 2] / d;
-				sk = s[kk - 1] / d;
-				ek = e[kk - 1] / d;
+				sk = s[kk - 1] / d; ek = e[kk - 1] / d;
 				b = ((sml + sm) * (sml - sm) + eml * eml) / 2.0;
-				c = sm * eml;
-				c = c * c;
-				shh = 0.0;
-				// if((b!=0.0)||(c!=0.0))
+				c = sm * eml; c = c * c; shh = 0.0;
+				//if((b!=0.0)||(c!=0.0))
 				if ((FX_Fabs(b) > FXARM_EPS) || (FX_Fabs(c) > FXARM_EPS))
 				{
 					shh = FX_Sqrt(b * b + c);
@@ -1669,7 +1641,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 					e[i - 1] = cs[0] * e[i - 1] - cs[1] * s[i - 1];
 					fg[1] = cs[1] * s[i];
 					s[i] = cs[0] * s[i];
-					// if((cs[0]!=1.0)||(cs[1]!=0.0))
+					//if((cs[0]!=1.0)||(cs[1]!=0.0))
 					if ((FX_Fabs(cs[0] - 1.0) > FXARM_EPS) || (FX_Fabs(cs[1]) > FXARM_EPS))
 						for (j = 1; j <= n; j++)
 						{
@@ -1686,7 +1658,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 					fg[1] = cs[1] * e[i];
 					e[i] = cs[0] * e[i];
 					if (i < m)
-						// if((cs[0]!=1.0)||(cs[1]!=0.0))
+						//if((cs[0]!=1.0)||(cs[1]!=0.0))
 						if ((FX_Fabs(cs[0] - 1.0) > FXARM_EPS) || (FX_Fabs(cs[1]) > FXARM_EPS))
 							for (j = 1; j <= m; j++)
 							{
@@ -1705,8 +1677,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 				if (ks == mm)
 				{
 					kk = kk + 1;
-					fg[1] = e[mm - 2];
-					e[mm - 2] = 0.0;
+					fg[1] = e[mm - 2]; e[mm - 2] = 0.0;
 					for (ll = kk; ll <= mm - 1; ll++)
 					{
 						i = mm + kk - ll - 1;
@@ -1718,7 +1689,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 							fg[1] = -cs[1] * e[i - 2];
 							e[i - 2] = cs[0] * e[i - 2];
 						}
-						// if((cs[0]!=1.0)||(cs[1]!=0.0))
+						//if((cs[0]!=1.0)||(cs[1]!=0.0))
 						if ((FX_Fabs(cs[0] - 1.0) > FXARM_EPS) || (FX_Fabs(cs[1]) > FXARM_EPS))
 							for (j = 1; j <= n; j++)
 							{
@@ -1742,7 +1713,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 						s[i - 1] = fg[0];
 						fg[1] = -cs[1] * e[i - 1];
 						e[i - 1] = cs[0] * e[i - 1];
-						// if((cs[0]!=1.0)||(cs[1]!=0.0))
+						//if((cs[0]!=1.0)||(cs[1]!=0.0))
 						if ((FX_Fabs(cs[0] - 1.0) > FXARM_EPS) || (FX_Fabs(cs[1]) > FXARM_EPS))
 							for (j = 1; j <= m; j++)
 							{
@@ -1759,6 +1730,7 @@ FX_INT32 SVD_UAV(FX_DOUBLE a[], FX_INT32 m, FX_INT32 n, FX_DOUBLE u[], FX_DOUBLE
 	}
 	return l;
 }
+
 
 FX_BOOL FX_SVDM_33(Matrix3 mo, Matrix3 u, Matrix3 s, Matrix3 v)
 {
@@ -1806,6 +1778,7 @@ FX_BOOL FX_SVDM_33(Matrix3 mo, Matrix3 u, Matrix3 s, Matrix3 v)
 			s[i][j] = ss[i * n + j];
 		}
 	}
+
 
 	for (i = 0; i < m; i++)
 	{
@@ -1872,6 +1845,7 @@ FX_BOOL FX_SVDM_44(Matrix4 mo, Matrix4 u, Matrix4 s, Matrix4 v)
 		}
 	}
 
+
 	for (i = 0; i < m; i++)
 	{
 		for (j = 0; j < m; j++)
@@ -1935,6 +1909,7 @@ FX_BOOL FX_SVDM_66(Matrix6 mo, Matrix6 u, Matrix6 s, Matrix6 v)
 			s[i][j] = ss[i * n + j];
 		}
 	}
+
 
 	for (i = 0; i < m; i++)
 	{
@@ -2000,6 +1975,7 @@ FX_BOOL FX_SVDM_77(Matrix7 mo, Matrix7 u, Matrix7 s, Matrix7 v)
 		}
 	}
 
+
 	for (i = 0; i < m; i++)
 	{
 		for (j = 0; j < m; j++)
@@ -2064,6 +2040,7 @@ FX_BOOL FX_SVDM_88(Matrix8 mo, Matrix8 u, Matrix8 s, Matrix8 v)
 		}
 	}
 
+
 	for (i = 0; i < m; i++)
 	{
 		for (j = 0; j < m; j++)
@@ -2081,6 +2058,7 @@ FX_BOOL FX_SVDM_88(Matrix8 mo, Matrix8 u, Matrix8 s, Matrix8 v)
 	}
 	return FX_TRUE;
 }
+
 
 FX_VOID FX_UTM_33(Matrix3 m)
 {
@@ -2173,6 +2151,7 @@ FX_VOID FX_UTM_88(Matrix8 m)
 	}
 }
 
+
 FX_DOUBLE FX_DetM_33(Matrix3 m)
 {
 	FX_INT32 i;
@@ -2233,11 +2212,12 @@ FX_DOUBLE FX_DetM_88(Matrix8 m)
 	return ret;
 }
 
+
 FX_DOUBLE FX_VectDot3(Vect3 a, Vect3 b)
 {
 	FX_INT32 i = 0;
 	FX_DOUBLE ret = 0;
-	for (i = 0; i < 3; i++)
+	for ( i = 0; i < 3; i++)
 	{
 		ret += a[i] * b[i];
 	}
@@ -2284,7 +2264,8 @@ FX_DOUBLE FX_VectDot8(Vect8 a, Vect8 b)
 	return ret;
 }
 
-FX_VOID LDLT(Matrix7 A, Matrix7 L, Vect7 D)
+
+FX_VOID LDLT(Matrix7 A, Matrix7 L , Vect7 D)
 {
 	FX_INT32 DOF = 7;
 	FX_INT32 n = DOF;
@@ -2292,18 +2273,13 @@ FX_VOID LDLT(Matrix7 A, Matrix7 L, Vect7 D)
 	FX_DOUBLE temp = 0.0;
 	FX_DOUBLE sum = 0.0;
 	D[0] = A[0][0];
-	for (i = 1; i < n; i++)
-	{
-		for (j = 0; j < i; j++)
-		{
-			if (j == 0)
-			{
+	for (i = 1; i < n; i++) {
+		for (j = 0; j < i; j++) {
+			if (j == 0) {
 				L[i][j] = A[i][j] / D[j];
 			}
-			else
-			{
-				for (h = 0; h < j; h++)
-				{
+			else {
+				for (h = 0; h < j; h++) {
 					temp = L[i][h] * L[j][h] * D[h];
 					sum += temp;
 				}
@@ -2311,8 +2287,7 @@ FX_VOID LDLT(Matrix7 A, Matrix7 L, Vect7 D)
 				sum = 0.0;
 			}
 		}
-		for (h = 0; h < i; h++)
-		{
+		for (h = 0; h < i; h++) {
 			temp = L[i][h] * L[i][h] * D[h];
 			sum += temp;
 		}
@@ -2321,49 +2296,45 @@ FX_VOID LDLT(Matrix7 A, Matrix7 L, Vect7 D)
 	}
 }
 
-FX_VOID FX_SPMatInv77(Matrix7 orgm, Matrix7 invm)
+
+FX_VOID FX_SPMatInv77(Matrix7 orgm , Matrix7 invm )
 {
 	FX_INT32 DOF = 7;
 	FX_INT32 i, j, k;
-	Matrix7 L = {0};
-	Vect7 D = {0};
-	Matrix7 Linv = {0};
-	Matrix7 LTinv = {0};
+	Matrix7 L = { 0 };
+	Vect7  D = { 0 };
+	Matrix7 Linv = { 0 };
+	Matrix7 LTinv = { 0 };
 	for (i = 0; i < DOF; i++)
 	{
 		L[i][i] = 1.0;
 		Linv[i][i] = 1.0;
 	}
 	LDLT(orgm, L, D);
-	for (i = 0; i < DOF; i++)
-	{
+	for (i = 0; i < DOF; i++) {
 		D[i] = 1 / D[i];
 	}
-	for (i = 0; i < DOF; ++i)
-	{
-		for (j = 0; j < i; ++j)
-		{
+	for (i = 0; i < DOF; ++i) {
+		for (j = 0; j < i; ++j) {
 			FX_DOUBLE sum = 0.0;
-			for (k = j; k < i; ++k)
-			{
+			for (k = j; k < i; ++k) {
 				sum += L[i][k] * Linv[k][j];
 			}
 			Linv[i][j] = -sum / L[i][i];
 		}
 	}
-	for (i = 0; i < DOF; i++)
-	{
+	for (i = 0; i < DOF; i++) {
 		LTinv[i][i] = D[i];
 	}
-	for (i = DOF - 1; i > 0; i--)
-	{
-		for (j = DOF - i; j < DOF; j++)
-		{
+	for (i = DOF - 1; i > 0; i--) {
+		for (j = DOF - i; j < DOF; j++) {
 			LTinv[DOF - 1 - i][j] = Linv[j][DOF - 1 - i] * D[j];
 		}
 	}
 	FX_MMM77(LTinv, Linv, invm);
 }
+
+
 
 FX_BOOL FX_MatrixNormZX(Vect3 z, Vect3 x, Matrix3 ret_m)
 {
@@ -2374,24 +2345,12 @@ FX_BOOL FX_MatrixNormZX(Vect3 z, Vect3 x, Matrix3 ret_m)
 	FX_Vect3Copy(z, zdir);
 	FX_Vect3Copy(x, xdir);
 
-	if (FX_VectNorm(zdir) == FX_FALSE)
-	{
-		return FX_FALSE;
-	}
-	if (FX_VectNorm(xdir) == FX_FALSE)
-	{
-		return FX_FALSE;
-	}
+	if (FX_VectNorm(zdir) == FX_FALSE) { return FX_FALSE; }
+	if (FX_VectNorm(xdir) == FX_FALSE) { return FX_FALSE; }
 	FX_VectCross(zdir, xdir, ydir);
-	if (FX_VectNorm(ydir) == FX_FALSE)
-	{
-		return FX_FALSE;
-	}
+	if (FX_VectNorm(ydir) == FX_FALSE) { return FX_FALSE; }
 	FX_VectCross(ydir, zdir, xdir);
-	if (FX_VectNorm(xdir) == FX_FALSE)
-	{
-		return FX_FALSE;
-	}
+	if (FX_VectNorm(xdir) == FX_FALSE) { return FX_FALSE; }
 
 	ret_m[0][0] = xdir[0];
 	ret_m[1][0] = xdir[1];
@@ -2442,6 +2401,7 @@ FX_VOID FX_VectCross(Vect3 a, Vect3 b, Vect3 result)
 	result[2] = a[0] * b[1] - a[1] * b[0];
 }
 
+
 FX_VOID FX_PGPointMap(Matrix4 a_to_b, Vect3 in_a, Vect3 ret_in_b)
 {
 	ret_in_b[0] = a_to_b[0][3] + a_to_b[0][0] * in_a[0] + a_to_b[0][1] * in_a[1] + a_to_b[0][2] * in_a[2];
@@ -2449,21 +2409,23 @@ FX_VOID FX_PGPointMap(Matrix4 a_to_b, Vect3 in_a, Vect3 ret_in_b)
 	ret_in_b[2] = a_to_b[2][3] + a_to_b[2][0] * in_a[0] + a_to_b[2][1] * in_a[1] + a_to_b[2][2] * in_a[2];
 }
 
-FX_VOID FX_PGVectMap(Matrix4 a_to_b, Vect3 in_a, Vect3 ret_in_b)
+FX_VOID	FX_PGVectMap(Matrix4 a_to_b, Vect3 in_a, Vect3 ret_in_b)
 {
 	ret_in_b[0] = a_to_b[0][0] * in_a[0] + a_to_b[0][1] * in_a[1] + a_to_b[0][2] * in_a[2];
 	ret_in_b[1] = a_to_b[1][0] * in_a[0] + a_to_b[1][1] * in_a[1] + a_to_b[1][2] * in_a[2];
 	ret_in_b[2] = a_to_b[2][0] * in_a[0] + a_to_b[2][1] * in_a[1] + a_to_b[2][2] * in_a[2];
 }
 
-FX_VOID FX_PGVectMapInv(Matrix4 a_to_b, Vect3 ret_in_a, Vect3 in_b)
+
+FX_VOID	FX_PGVectMapInv(Matrix4 a_to_b, Vect3 ret_in_a, Vect3 in_b)
 {
 	ret_in_a[0] = a_to_b[0][0] * in_b[0] + a_to_b[1][0] * in_b[1] + a_to_b[2][0] * in_b[2];
 	ret_in_a[1] = a_to_b[0][1] * in_b[0] + a_to_b[1][1] * in_b[1] + a_to_b[2][1] * in_b[2];
 	ret_in_a[2] = a_to_b[0][2] * in_b[0] + a_to_b[1][2] * in_b[1] + a_to_b[2][2] * in_b[2];
 }
 
-FX_VOID FX_PGMult(Matrix4 L, Matrix4 R, Matrix4 Result)
+
+FX_VOID  FX_PGMult(Matrix4 L, Matrix4 R, Matrix4 Result)
 {
 	Result[0][0] = L[0][0] * R[0][0] + L[0][1] * R[1][0] + L[0][2] * R[2][0];
 	Result[0][1] = L[0][0] * R[0][1] + L[0][1] * R[1][1] + L[0][2] * R[2][1];
@@ -2486,7 +2448,7 @@ FX_VOID FX_PGMult(Matrix4 L, Matrix4 R, Matrix4 Result)
 	Result[3][2] = 0;
 	Result[3][3] = 1;
 }
-FX_VOID FX_PGGetGes(PosGes src, Matrix3 ges)
+FX_VOID	FX_PGGetGes(PosGes src, Matrix3 ges)
 {
 	FX_INT32 i, j;
 	for (i = 0; i < 3; i++)
@@ -2498,30 +2460,31 @@ FX_VOID FX_PGGetGes(PosGes src, Matrix3 ges)
 	}
 }
 
-FX_VOID FX_PGGetPos(PosGes src, Vect3 pos)
+FX_VOID	FX_PGGetPos(PosGes src, Vect3 pos)
 {
 	pos[0] = src[0][3];
 	pos[1] = src[1][3];
 	pos[2] = src[2][3];
 }
-FX_VOID FX_PGGetAxisX(PosGes src, Vect3 axis_x)
+FX_VOID	FX_PGGetAxisX(PosGes src, Vect3 axis_x)
 {
 	axis_x[0] = src[0][0];
 	axis_x[1] = src[1][0];
 	axis_x[2] = src[2][0];
 }
-FX_VOID FX_PGGetAxisY(PosGes src, Vect3 axis_y)
+FX_VOID	FX_PGGetAxisY(PosGes src, Vect3 axis_y)
 {
 	axis_y[0] = src[0][1];
 	axis_y[1] = src[1][1];
 	axis_y[2] = src[2][1];
 }
-FX_VOID FX_PGGetAxisZ(PosGes src, Vect3 axis_z)
+FX_VOID	FX_PGGetAxisZ(PosGes src, Vect3 axis_z)
 {
 	axis_z[0] = src[0][2];
 	axis_z[1] = src[1][2];
 	axis_z[2] = src[2][2];
 }
+
 
 FX_VOID FX_PGMatrixInv(Matrix4 pg, Matrix4 pginv)
 {
@@ -2552,6 +2515,7 @@ FX_VOID FX_PGMatrixInv(Matrix4 pg, Matrix4 pginv)
 	pginv[2][3] = -(pginv[2][0] * p[0] + pginv[2][1] * p[1] + pginv[2][2] * p[2]);
 }
 
+
 FX_VOID FX_MatRotAxis(Vect3 rot_dir, FX_DOUBLE rot_angle, Matrix3 m, Matrix3 m_roted)
 {
 	FX_DOUBLE r[3][3];
@@ -2570,19 +2534,13 @@ FX_VOID FX_MatRotAxis(Vect3 rot_dir, FX_DOUBLE rot_angle, Matrix3 m, Matrix3 m_r
 	ky = rot_dir[1];
 	kz = rot_dir[2];
 
-	r[0][0] = cosv + a * kx * kx;
-	r[0][1] = -sinv * kz + a * kx * ky;
-	r[0][2] = sinv * ky + a * kx * kz;
-	r[1][0] = sinv * kz + a * kx * ky;
-	r[1][1] = cosv + a * ky * ky;
-	r[1][2] = -sinv * kx + a * ky * kz;
-	r[2][0] = -sinv * ky + a * kx * kz;
-	r[2][1] = sinv * kx + a * ky * kz;
-	r[2][2] = cosv + a * kz * kz;
+	r[0][0] = cosv + a * kx * kx;		r[0][1] = -sinv * kz + a * kx * ky;		r[0][2] = sinv * ky + a * kx * kz;
+	r[1][0] = sinv * kz + a * kx * ky;	r[1][1] = cosv + a * ky * ky;			r[1][2] = -sinv * kx + a * ky * kz;
+	r[2][0] = -sinv * ky + a * kx * kz;	r[2][1] = sinv * kx + a * ky * kz;		r[2][2] = cosv + a * kz * kz;
 	FX_MMM33(r, m, m_roted);
 }
 
-FX_BOOL FX_Matrix2ZYX_DGR(Matrix3 m, FX_DOUBLE dgr, Vect3 ret)
+FX_BOOL	FX_Matrix2ZYX_DGR(Matrix3 m, FX_DOUBLE dgr, Vect3  ret)
 {
 	FX_DOUBLE cb;
 	ret[1] = FX_ATan2(-m[2][0], FX_Sqrt(m[0][0] * m[0][0] + m[1][0] * m[1][0])) * FXARM_R2D;
@@ -2596,8 +2554,9 @@ FX_BOOL FX_Matrix2ZYX_DGR(Matrix3 m, FX_DOUBLE dgr, Vect3 ret)
 	ret[0] = 0;
 	ret[2] = 0;
 	return FX_FALSE;
+
 }
-FX_BOOL FX_Matrix2ZYX(Matrix3 m, Vect3 ret)
+FX_BOOL FX_Matrix2ZYX(Matrix3 m, Vect3  ret)
 {
 	FX_DOUBLE cb;
 	ret[1] = FX_ATan2(-m[2][0], FX_Sqrt(m[0][0] * m[0][0] + m[1][0] * m[1][0])) * FXARM_R2D;
@@ -2611,12 +2570,13 @@ FX_BOOL FX_Matrix2ZYX(Matrix3 m, Vect3 ret)
 	ret[0] = 0;
 	ret[2] = 0;
 	return FX_FALSE;
+
 }
 
 FX_VOID FX_ZYZ2Matrix(Vect3 ret, Matrix3 m)
 {
-	// Z(-Y)Z
-	Vect3 ZYZ = {0};
+	//Z(-Y)Z
+	Vect3 ZYZ = { 0 };
 	ZYZ[0] = ret[0];
 	ZYZ[1] = -ret[1];
 	ZYZ[2] = ret[2];
@@ -2639,12 +2599,13 @@ FX_VOID FX_ZYZ2Matrix(Vect3 ret, Matrix3 m)
 	m[2][0] = -sb * cr;
 	m[2][1] = sb * sr;
 	m[2][2] = cb;
+
 }
 
 FX_VOID FX_ZYX2Matrix(Vect3 ret, Matrix3 m)
 {
-	// Z(-Y)X
-	Vect3 ZYX = {0};
+	//Z(-Y)X
+	Vect3 ZYX = { 0 };
 	ZYX[0] = ret[0];
 	ZYX[1] = -ret[1];
 	ZYX[2] = ret[2];
@@ -2667,12 +2628,13 @@ FX_VOID FX_ZYX2Matrix(Vect3 ret, Matrix3 m)
 	m[2][0] = -sb;
 	m[2][1] = cb * sr;
 	m[2][2] = cb * cr;
+
 }
 
 FX_VOID FX_XYZ2Matrix(Vect3 ret, Matrix3 m)
 {
-	// ZYX
-	Vect3 ZYX = {0};
+	//ZYX
+	Vect3 ZYX = { 0 };
 	ZYX[0] = ret[2];
 	ZYX[1] = ret[1];
 	ZYX[2] = ret[0];
@@ -2699,8 +2661,8 @@ FX_VOID FX_XYZ2Matrix(Vect3 ret, Matrix3 m)
 
 FX_VOID FX_RotXYZ(Vect3 ret, Matrix3 m)
 {
-	// XYZ
-	Vect3 XYZ = {0};
+	//XYZ
+	Vect3 XYZ = { 0 };
 	XYZ[0] = ret[0];
 	XYZ[1] = ret[1];
 	XYZ[2] = ret[2];
@@ -2723,9 +2685,10 @@ FX_VOID FX_RotXYZ(Vect3 ret, Matrix3 m)
 	m[2][0] = -ca * sb * cr + sa * sr;
 	m[2][1] = ca * sb * sr + sa * cr;
 	m[2][2] = ca * cb;
+
 }
 
-FX_BOOL FX_Matrix2ZYZ_DGR(Matrix3 m, FX_DOUBLE dgr, Vect3 ret)
+FX_BOOL	FX_Matrix2ZYZ_DGR(Matrix3 m, FX_DOUBLE dgr, Vect3  ret)
 {
 	FX_DOUBLE bsin;
 	FX_DOUBLE DGR;
@@ -2753,7 +2716,7 @@ FX_BOOL FX_Matrix2ZYZ_DGR(Matrix3 m, FX_DOUBLE dgr, Vect3 ret)
 	ret[2] = FX_ATan2(m[2][1] / bsin, -m[2][0] / bsin) * FXARM_R2D;
 	return FX_TRUE;
 }
-FX_BOOL FX_Matrix2ZYZ(Matrix3 m, Vect3 ret)
+FX_BOOL FX_Matrix2ZYZ(Matrix3 m, Vect3  ret)
 {
 	FX_DOUBLE bsin;
 	ret[1] = FX_ATan2(FX_Sqrt(m[2][0] * m[2][0] + m[2][1] * m[2][1]), m[2][2]);
@@ -2771,7 +2734,7 @@ FX_BOOL FX_Matrix2ZYZ(Matrix3 m, Vect3 ret)
 	return FX_TRUE;
 }
 
-FX_VOID FX_MMV3(Matrix3 L, Vect3 R, Vect3 Result)
+FX_VOID  FX_MMV3(Matrix3 L, Vect3 R, Vect3 Result)
 {
 	FX_INT32 i, k;
 	for (i = 0; i < 3; i++)
@@ -2784,9 +2747,10 @@ FX_VOID FX_MMV3(Matrix3 L, Vect3 R, Vect3 Result)
 	}
 }
 
-FX_VOID Tmat(FX_DOUBLE DH[4], Matrix4 T)
-{
 
+FX_VOID Tmat(FX_DOUBLE DH[4], Matrix4 T) 
+{
+	
 	FX_DOUBLE c3;
 	FX_DOUBLE s3;
 	FX_DOUBLE c0;
@@ -2796,23 +2760,13 @@ FX_VOID Tmat(FX_DOUBLE DH[4], Matrix4 T)
 	c0 = FX_COS_DEG(DH[0]);
 	s0 = FX_SIN_DEG(DH[0]);
 
-	T[0][0] = c3;
-	T[0][1] = -s3;
-	T[0][2] = 0.0;
-	T[0][3] = DH[1];
-	T[1][0] = s3 * c0;
-	T[1][1] = c3 * c0;
-	T[1][2] = -s0;
-	T[1][3] = -s0 * DH[2];
-	T[2][0] = s3 * s0;
-	T[2][1] = c3 * s0;
-	T[2][2] = c0;
-	T[2][3] = c0 * DH[2];
-	T[3][0] = 0.0;
-	T[3][1] = 0.0;
-	T[3][2] = 0.0;
-	T[3][3] = 1.0;
+	T[0][0] = c3; T[0][1] = -s3; T[0][2] = 0.0; T[0][3] = DH[1];
+	T[1][0] = s3 * c0; T[1][1] = c3 * c0; T[1][2] = -s0; T[1][3] = -s0 * DH[2];
+	T[2][0] = s3 * s0; T[2][1] = c3 * s0; T[2][2] = c0; T[2][3] = c0 * DH[2];
+	T[3][0] = 0.0; T[3][1] = 0.0; T[3][2] = 0.0; T[3][3] = 1.0;
 }
+
+
 
 FX_VOID FX_PGTranXYZABC2PG(FX_DOUBLE xyzabc[6], FX_DOUBLE pg[4][4])
 {
@@ -2844,14 +2798,16 @@ FX_VOID FX_PGTranXYZABC2PG(FX_DOUBLE xyzabc[6], FX_DOUBLE pg[4][4])
 	pg[1][3] = xyzabc[1];
 	pg[2][3] = xyzabc[2];
 
+
 	pg[3][0] = 0;
 	pg[3][1] = 0;
 	pg[3][2] = 0;
 	pg[3][3] = 1;
 }
 
+
 //////////////////////////////////////////////////
-FX_BOOL FX_RightPsoInv67(FX_DOUBLE m[6][7], FX_DOUBLE invm[7][6])
+FX_BOOL  FX_RightPsoInv67(FX_DOUBLE m[6][7], FX_DOUBLE invm[7][6])
 {
 	FX_INT32 i, j, k;
 	FX_DOUBLE m_t[7][6];
@@ -2907,36 +2863,21 @@ FX_VOID PGErr(Matrix4 Td, Matrix4 Te, Vect6 err)
 	err[0] = Td[0][3] - Te[0][3];
 	err[1] = Td[1][3] - Te[1][3];
 	err[2] = Td[2][3] - Te[2][3];
-	nd[0] = Td[0][0];
-	nd[1] = Td[1][0];
-	nd[2] = Td[2][0];
-	sd[0] = Td[0][1];
-	sd[1] = Td[1][1];
-	sd[2] = Td[2][1];
-	ad[0] = Td[0][2];
-	ad[1] = Td[1][2];
-	ad[2] = Td[2][2];
-	ne[0] = Te[0][0];
-	ne[1] = Te[1][0];
-	ne[2] = Te[2][0];
-	se[0] = Te[0][1];
-	se[1] = Te[1][1];
-	se[2] = Te[2][1];
-	ae[0] = Te[0][2];
-	ae[1] = Te[1][2];
-	ae[2] = Te[2][2];
+	nd[0] = Td[0][0]; nd[1] = Td[1][0]; nd[2] = Td[2][0];
+	sd[0] = Td[0][1]; sd[1] = Td[1][1]; sd[2] = Td[2][1];
+	ad[0] = Td[0][2]; ad[1] = Td[1][2]; ad[2] = Td[2][2];
+	ne[0] = Te[0][0]; ne[1] = Te[1][0]; ne[2] = Te[2][0];
+	se[0] = Te[0][1]; se[1] = Te[1][1]; se[2] = Te[2][1];
+	ae[0] = Te[0][2]; ae[1] = Te[1][2]; ae[2] = Te[2][2];
 	FX_VectCross(ne, nd, temp1);
 	FX_VectCross(se, sd, temp2);
 	FX_VectCross(ae, ad, temp3);
-	for (i = 0; i < 3; i++)
-	{
+	for (i = 0; i < 3; i++) {
 		err[i + 3] = 0.5 * (temp1[i] + temp2[i] + temp3[i]);
-		if (err[i + 3] > 0.1)
-		{
+		if (err[i + 3] > 0.1) {
 			err[i + 3] = 0.1;
 		}
-		if (err[i + 3] < -0.1)
-		{
+		if (err[i + 3] < -0.1) {
 			err[i + 3] = -0.1;
 		}
 	}
@@ -2945,31 +2886,25 @@ FX_VOID PGErr(Matrix4 Td, Matrix4 Te, Vect6 err)
 FX_INT32 Cholesky(Matrix6 A, Matrix6 L, FX_INT32 n)
 {
 	FX_INT32 i, j, k;
-	for (k = 0; k < n; k++)
-	{
+	for (k = 0; k < n; k++) {
 		FX_DOUBLE sum = 0;
-		for (i = 0; i < k; i++)
-		{
+		for (i = 0; i < k; i++) {
 			sum += L[k][i] * L[k][i];
 		}
 		sum = A[k][k] - sum;
-		if (sum <= 0.0)
-		{
+		if (sum <= 0.0) {
 			return -1;
 		}
 		L[k][k] = FX_Sqrt(sum);
-		// L[k][k] = FX_Sqrt(sum > 0 ? sum : 0);
-		for (i = k + 1; i < n; i++)
-		{
+		//L[k][k] = FX_Sqrt(sum > 0 ? sum : 0);
+		for (i = k + 1; i < n; i++) {
 			sum = 0;
-			for (j = 0; j < k; j++)
-			{
+			for (j = 0; j < k; j++) {
 				sum += L[i][j] * L[k][j];
 			}
 			L[i][k] = (A[i][k] - sum) / L[k][k];
 		}
-		for (j = 0; j < k; j++)
-		{
+		for (j = 0; j < k; j++) {
 			L[j][k] = 0;
 		}
 	}
@@ -2985,18 +2920,15 @@ void eig(Matrix6 a, Matrix6 v, FX_DOUBLE eps)
 	{
 		v[i][i] = 1.0;
 		for (j = 0; j <= n - 1; j++)
-			if (i != j)
-				v[i][j] = 0.0;
+			if (i != j) v[i][j] = 0.0;
 	}
 	ff = 0.0;
 	for (i = 1; i <= n - 1; i++)
 		for (j = 0; j <= i - 1; j++)
 		{
-			d = a[i][j];
-			ff = ff + d * d;
+			d = a[i][j]; ff = ff + d * d;
 		}
-	if (ff < 0.0)
-	{
+	if (ff < 0.0) {
 
 		return;
 	}
@@ -3010,28 +2942,23 @@ loop1:
 			d = FX_Sqrt(a[i][j]);
 			if (d > ff)
 			{
-				p = i;
-				q = j;
+				p = i; q = j;
 				goto loop;
 			}
 		}
-	if (ff < eps)
-		return;
+	if (ff < eps) return;
 	goto loop0;
 loop:
-	x = -a[p][q];
-	y = (a[q][q] - a[p][p]) / 2.0;
+	x = -a[p][q]; y = (a[q][q] - a[p][p]) / 2.0;
 	omega = x / FX_Sqrt(x * x + y * y);
-	if (y < 0.0)
-		omega = -omega;
+	if (y < 0.0) omega = -omega;
 	sn = 1.0 + FX_Sqrt(1.0 - omega * omega);
 	sn = omega / FX_Sqrt(2.0 * sn);
 	cn = FX_Sqrt(1.0 - sn * sn);
 	fm = a[p][p];
 	a[p][p] = fm * cn * cn + a[q][q] * sn * sn + a[p][q] * omega;
 	a[q][q] = fm * sn * sn + a[q][q] * cn * cn - a[p][q] * omega;
-	a[p][q] = 0.0;
-	a[q][p] = 0.0;
+	a[p][q] = 0.0; a[q][p] = 0.0;
 	for (j = 0; j <= n - 1; j++)
 		if ((j != p) && (j != q))
 		{
@@ -3058,17 +2985,16 @@ loop:
 FX_BOOL generalized_eig(FX_DOUBLE eps, Matrix6 A, Matrix6 B, Matrix6 V, Vect6 D)
 {
 	FX_INT32 i, tret;
-	Matrix6 G = {0};
-	Matrix6 GInv = {0};
-	Matrix6 GInvT = {0};
-	Matrix6 S = {0};
-	Matrix6 temp = {0};
-	Matrix6 y = {0};
+	Matrix6 G = { 0 };
+	Matrix6 GInv = { 0 };
+	Matrix6 GInvT = { 0 };
+	Matrix6 S = { 0 };
+	Matrix6 temp = { 0 };
+	Matrix6 y = { 0 };
 	Cholesky(B, G, 6);
 	tret = MatrixInv66(G, GInv);
 
-	if (tret == 0)
-	{
+	if (tret == 0) {
 		return FX_FALSE;
 	}
 
@@ -3084,9 +3010,9 @@ FX_BOOL generalized_eig(FX_DOUBLE eps, Matrix6 A, Matrix6 B, Matrix6 V, Vect6 D)
 	D[4] = S[5][5];
 	D[5] = S[4][4];
 
+
 	FX_MMM66(GInvT, y, temp);
-	for (i = 0; i < 6; i++)
-	{
+	for (i = 0; i < 6; i++) {
 		V[i][0] = temp[i][2];
 		V[i][1] = -temp[i][1];
 		V[i][2] = -temp[i][0];
@@ -3099,21 +3025,21 @@ FX_BOOL generalized_eig(FX_DOUBLE eps, Matrix6 A, Matrix6 B, Matrix6 V, Vect6 D)
 }
 
 ////////////////////////////
-FX_VOID FX_Vect3AToB(Vect3 A, Vect3 B)
+FX_VOID	FX_Vect3AToB(Vect3 A, Vect3 B)
 {
 	B[0] = A[0];
 	B[1] = A[1];
 	B[2] = A[2];
 }
 
-FX_VOID FX_VectAddToA(Vect3 a, Vect3 b)
+FX_VOID	FX_VectAddToA(Vect3 a, Vect3 b)
 {
 	a[0] += b[0];
 	a[1] += b[1];
 	a[2] += b[2];
 }
 
-FX_VOID FX_VectAdd(Vect3 a, Vect3 b, Vect3 result)
+FX_VOID	FX_VectAdd(Vect3 a, Vect3 b, Vect3 result)
 {
 	result[0] = a[0] + b[0];
 	result[1] = a[1] + b[1];
@@ -3121,7 +3047,7 @@ FX_VOID FX_VectAdd(Vect3 a, Vect3 b, Vect3 result)
 }
 
 /////////////////////////////////////////////////////////////Quaternion///////////////
-FX_VOID FX_QuatMult(Quaternion q1, Quaternion q2, Quaternion q)
+FX_VOID	FX_QuatMult(Quaternion q1, Quaternion q2, Quaternion q)
 {
 	FX_DOUBLE aw, ax, ay, az;
 	FX_DOUBLE bw, bx, by, bz;
@@ -3182,35 +3108,32 @@ FX_VOID FX_ABC2Quaternions(FX_DOUBLE XYZABC[6], Quaternion Q)
 	Trm[2][1] = cb * sr;
 	Trm[2][2] = cb * cr;
 
+
 	FX_DOUBLE tr = Trm[0][0] + Trm[1][1] + Trm[2][2];
 	Quaternion q;
 
-	if (tr > 0)
-	{
+	if (tr > 0) {
 		FX_DOUBLE S = FX_Sqrt(tr + 1.0) * 2; //
 		q[3] = 0.25 * S;
 		q[0] = (Trm[2][1] - Trm[1][2]) / S;
 		q[1] = (Trm[0][2] - Trm[2][0]) / S;
 		q[2] = (Trm[1][0] - Trm[0][1]) / S;
 	}
-	else if ((Trm[0][0] > Trm[1][1]) && (Trm[0][0] > Trm[2][2]))
-	{
+	else if ((Trm[0][0] > Trm[1][1]) && (Trm[0][0] > Trm[2][2])) {
 		FX_DOUBLE S = FX_Sqrt(1.0 + Trm[0][0] - Trm[1][1] - Trm[2][2]) * 2;
 		q[3] = (Trm[2][1] - Trm[1][2]) / S;
 		q[0] = 0.25 * S;
 		q[1] = (Trm[0][1] + Trm[1][0]) / S;
 		q[2] = (Trm[0][2] + Trm[2][0]) / S;
 	}
-	else if (Trm[1][1] > Trm[2][2])
-	{
+	else if (Trm[1][1] > Trm[2][2]) {
 		FX_DOUBLE S = FX_Sqrt(1.0 + Trm[1][1] - Trm[0][0] - Trm[2][2]) * 2;
 		q[3] = (Trm[0][2] - Trm[2][0]) / S;
 		q[0] = (Trm[0][1] + Trm[1][0]) / S;
 		q[1] = 0.25 * S;
 		q[2] = (Trm[1][2] + Trm[2][1]) / S;
 	}
-	else
-	{
+	else {
 		FX_DOUBLE S = FX_Sqrt(1.0 + Trm[2][2] - Trm[0][0] - Trm[1][1]) * 2;
 		q[3] = (Trm[1][0] - Trm[0][1]) / S;
 		q[0] = (Trm[0][2] + Trm[2][0]) / S;
@@ -3224,7 +3147,8 @@ FX_VOID FX_ABC2Quaternions(FX_DOUBLE XYZABC[6], Quaternion Q)
 	Q[3] = q[3];
 }
 
-FX_VOID FX_ABC2Q(Vect3 abc, Vect4 retq)
+
+FX_VOID  FX_ABC2Q(Vect3 abc, Vect4 retq)
 {
 	FX_DOUBLE angx = abc[0];
 	FX_DOUBLE angy = abc[1];
@@ -3252,6 +3176,7 @@ FX_VOID FX_ABC2Q(Vect3 abc, Vect4 retq)
 	pg[2][2] = cb * cr;
 
 	FX_Matrix2Quaternion3(pg, retq);
+
 }
 
 FX_DOUBLE FX_QuaternionSqrtNorm(Quaternion q)
@@ -3287,6 +3212,7 @@ FX_BOOL FX_QuaternionInverse(Quaternion q, Quaternion retqInv)
 		retqInv[3] = 0;
 		return FX_FALSE;
 	}
+
 }
 
 FX_VOID FX_QuaternionSlerp(Quaternion Q_from, Quaternion Q_to, FX_DOUBLE ratio, Quaternion Q_ret)
@@ -3357,6 +3283,8 @@ FX_VOID FX_Quaternions2ABCMatrix(Quaternion q, FX_DOUBLE xyz[3], Matrix4 m)
 	m[3][3] = 1;
 }
 
+
+
 FX_VOID FX_Quaternions2Matrix3(Quaternion q, Matrix3 m)
 {
 	FX_DOUBLE d11, d12, d13, d14, d22, d23, d24, d33, d34;
@@ -3374,6 +3302,7 @@ FX_VOID FX_Quaternions2Matrix3(Quaternion q, Matrix3 m)
 	m[0][1] = 2 * (d12 - d34);
 	m[0][2] = 2 * (d13 + d24);
 
+
 	m[1][0] = 2 * (d12 + d34);
 	m[1][1] = 1 - 2 * d11 - 2 * d33;
 	m[1][2] = 2 * (d23 - d14);
@@ -3381,39 +3310,36 @@ FX_VOID FX_Quaternions2Matrix3(Quaternion q, Matrix3 m)
 	m[2][0] = 2 * (d13 - d24);
 	m[2][1] = 2 * (d23 + d14);
 	m[2][2] = 1 - 2 * d11 - 2 * d22;
+
 }
 
-FX_VOID FX_Matrix2Quaternion3(Matrix3 m, Quaternion q)
+FX_VOID	 FX_Matrix2Quaternion3(Matrix3 m, Quaternion q)
 {
 	FX_DOUBLE tr = m[0][0] + m[1][1] + m[2][2];
 	FX_DOUBLE S;
 
-	if (tr > 0)
-	{
-		S = FX_Sqrt(tr + 1.0) * 2; // S=4*qw
+	if (tr > 0) {
+		S = FX_Sqrt(tr + 1.0) * 2; // S=4*qw 
 		q[3] = 0.25 * S;
 		q[0] = (m[2][1] - m[1][2]) / S;
 		q[1] = (m[0][2] - m[2][0]) / S;
 		q[2] = (m[1][0] - m[0][1]) / S;
 	}
-	else if ((m[0][0] > m[1][1]) && (m[0][0] > m[2][2]))
-	{
-		S = FX_Sqrt(1.0 + m[0][0] - m[1][1] - m[2][2]) * 2; // S=4*qx
+	else if ((m[0][0] > m[1][1]) && (m[0][0] > m[2][2])) {
+		S = FX_Sqrt(1.0 + m[0][0] - m[1][1] - m[2][2]) * 2; // S=4*qx 
 		q[3] = (m[2][1] - m[1][2]) / S;
 		q[0] = 0.25 * S;
 		q[1] = (m[0][1] + m[1][0]) / S;
 		q[2] = (m[0][2] + m[2][0]) / S;
 	}
-	else if (m[1][1] > m[2][2])
-	{
+	else if (m[1][1] > m[2][2]) {
 		S = FX_Sqrt(1.0 + m[1][1] - m[0][0] - m[2][2]) * 2; // S=4*qy
 		q[3] = (m[0][2] - m[2][0]) / S;
 		q[0] = (m[0][1] + m[1][0]) / S;
 		q[1] = 0.25 * S;
 		q[2] = (m[1][2] + m[2][1]) / S;
 	}
-	else
-	{
+	else {
 		S = FX_Sqrt(1.0 + m[2][2] - m[0][0] - m[1][1]) * 2; // S=4*qz
 		q[3] = (m[1][0] - m[0][1]) / S;
 		q[0] = (m[0][2] + m[2][0]) / S;
@@ -3422,37 +3348,33 @@ FX_VOID FX_Matrix2Quaternion3(Matrix3 m, Quaternion q)
 	}
 }
 
-FX_VOID FX_Matrix2Quaternion4(Matrix4 m, Quaternion q)
+FX_VOID	 FX_Matrix2Quaternion4(Matrix4 m, Quaternion q)
 {
 	FX_DOUBLE tr = m[0][0] + m[1][1] + m[2][2];
 	FX_DOUBLE S;
 
-	if (tr > 0)
-	{
-		S = FX_Sqrt(tr + 1.0) * 2; // S=4*qw
+	if (tr > 0) {
+		S = FX_Sqrt(tr + 1.0) * 2; // S=4*qw 
 		q[3] = 0.25 * S;
 		q[0] = (m[2][1] - m[1][2]) / S;
 		q[1] = (m[0][2] - m[2][0]) / S;
 		q[2] = (m[1][0] - m[0][1]) / S;
 	}
-	else if ((m[0][0] > m[1][1]) && (m[0][0] > m[2][2]))
-	{
-		S = FX_Sqrt(1.0 + m[0][0] - m[1][1] - m[2][2]) * 2; // S=4*qx
+	else if ((m[0][0] > m[1][1]) && (m[0][0] > m[2][2])) {
+		S = FX_Sqrt(1.0 + m[0][0] - m[1][1] - m[2][2]) * 2; // S=4*qx 
 		q[3] = (m[2][1] - m[1][2]) / S;
 		q[0] = 0.25 * S;
 		q[1] = (m[0][1] + m[1][0]) / S;
 		q[2] = (m[0][2] + m[2][0]) / S;
 	}
-	else if (m[1][1] > m[2][2])
-	{
+	else if (m[1][1] > m[2][2]) {
 		S = FX_Sqrt(1.0 + m[1][1] - m[0][0] - m[2][2]) * 2; // S=4*qy
 		q[3] = (m[0][2] - m[2][0]) / S;
 		q[0] = (m[0][1] + m[1][0]) / S;
 		q[1] = 0.25 * S;
 		q[2] = (m[1][2] + m[2][1]) / S;
 	}
-	else
-	{
+	else {
 		S = FX_Sqrt(1.0 + m[2][2] - m[0][0] - m[1][1]) * 2; // S=4*qz
 		q[3] = (m[1][0] - m[0][1]) / S;
 		q[0] = (m[0][2] + m[2][0]) / S;
@@ -3462,7 +3384,7 @@ FX_VOID FX_Matrix2Quaternion4(Matrix4 m, Quaternion q)
 }
 
 //////////////////Rotation matrix of Euler angular coordinate system
-FX_VOID FX_RotEuler_XYZ(FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_XYZ(FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3471,25 +3393,13 @@ FX_VOID FX_RotEuler_XYZ(FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, Matri
 	FX_SIN_COS_DEG(y_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(z_dgr, &sr, &cr);
 
-	m[0][0] = cb * cr;
-	m[0][1] = -cb * sr;
-	m[0][2] = sb;
-	m[0][3] = 0;
-	m[1][0] = sa * sb * cr + ca * sr;
-	m[1][1] = -sa * sb * sr + ca * cr;
-	m[1][2] = -sa * cb;
-	m[1][3] = 0;
-	m[2][0] = -ca * sb * cr + sa * sr;
-	m[2][1] = ca * sb * sr + sa * cr;
-	m[2][2] = ca * cb;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = cb * cr;                 m[0][1] = -cb * sr;                m[0][2] = sb;       m[0][3] = 0;
+	m[1][0] = sa * sb * cr + ca * sr;  m[1][1] = -sa * sb * sr + ca * cr; m[1][2] = -sa * cb; m[1][3] = 0;
+	m[2][0] = -ca * sb * cr + sa * sr; m[2][1] = ca * sb * sr + sa * cr;  m[2][2] = ca * cb;  m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;                       m[3][2] = 0;        m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_XZY(FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_XZY(FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3498,25 +3408,13 @@ FX_VOID FX_RotEuler_XZY(FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, Matri
 	FX_SIN_COS_DEG(z_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(y_dgr, &sr, &cr);
 
-	m[0][0] = cb * cr;
-	m[0][1] = -sb;
-	m[0][2] = cb * sr;
-	m[0][3] = 0;
-	m[1][0] = ca * sb * cr + sa * sr;
-	m[1][1] = ca * cb;
-	m[1][2] = ca * sb * sr - sa * cr;
-	m[1][3] = 0;
-	m[2][0] = sa * sb * cr - ca * sr;
-	m[2][1] = sa * cb;
-	m[2][2] = sa * sb * sr + ca * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = cb * cr;                m[0][1] = -sb;     m[0][2] = cb * sr;                m[0][3] = 0;
+	m[1][0] = ca * sb * cr + sa * sr; m[1][1] = ca * cb; m[1][2] = ca * sb * sr - sa * cr; m[1][3] = 0;
+	m[2][0] = sa * sb * cr - ca * sr; m[2][1] = sa * cb; m[2][2] = sa * sb * sr + ca * cr; m[2][3] = 0;
+	m[3][0] = 0;                      m[3][1] = 0;       m[3][2] = 0;                      m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_YXZ(FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_YXZ(FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3525,25 +3423,13 @@ FX_VOID FX_RotEuler_YXZ(FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, Matri
 	FX_SIN_COS_DEG(x_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(z_dgr, &sr, &cr);
 
-	m[0][0] = sa * sb * sr + ca * cr;
-	m[0][1] = sa * sb * cr - ca * sr;
-	m[0][2] = sa * cb;
-	m[0][3] = 0;
-	m[1][0] = cb * sr;
-	m[1][1] = cb * cr;
-	m[1][2] = -sb;
-	m[1][3] = 0;
-	m[2][0] = ca * sb * sr - sa * cr;
-	m[2][1] = ca * sb * cr + sa * sr;
-	m[2][2] = ca * cb;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = sa * sb * sr + ca * cr; m[0][1] = sa * sb * cr - ca * sr; m[0][2] = sa * cb; m[0][3] = 0;
+	m[1][0] = cb * sr;                m[1][1] = cb * cr;                m[1][2] = -sb;     m[1][3] = 0;
+	m[2][0] = ca * sb * sr - sa * cr; m[2][1] = ca * sb * cr + sa * sr; m[2][2] = ca * cb; m[2][3] = 0;
+	m[3][0] = 0;                      m[3][1] = 0;                      m[3][2] = 0;       m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_YZX(FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_YZX(FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3552,25 +3438,13 @@ FX_VOID FX_RotEuler_YZX(FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, Matri
 	FX_SIN_COS_DEG(z_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(x_dgr, &sr, &cr);
 
-	m[0][0] = ca * cb;
-	m[0][1] = -ca * sb * cr + sa * sr;
-	m[0][2] = ca * sb * sr + sa * cr;
-	m[0][3] = 0;
-	m[1][0] = sb;
-	m[1][1] = cb * cr;
-	m[1][2] = -cb * sr;
-	m[1][3] = 0;
-	m[2][0] = -sa * cb;
-	m[2][1] = sa * sb * cr + ca * sr;
-	m[2][2] = -sa * sb * sr + ca * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = ca * cb;  m[0][1] = -ca * sb * cr + sa * sr; m[0][2] = ca * sb * sr + sa * cr;  m[0][3] = 0;
+	m[1][0] = sb;       m[1][1] = cb * cr;                 m[1][2] = -cb * sr;                m[1][3] = 0;
+	m[2][0] = -sa * cb; m[2][1] = sa * sb * cr + ca * sr;  m[2][2] = -sa * sb * sr + ca * cr; m[2][3] = 0;
+	m[3][0] = 0;        m[3][1] = 0;                       m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_ZXY(FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_ZXY(FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3579,25 +3453,13 @@ FX_VOID FX_RotEuler_ZXY(FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, Matri
 	FX_SIN_COS_DEG(x_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(y_dgr, &sr, &cr);
 
-	m[0][0] = -sa * sb * sr + ca * cr;
-	m[0][1] = -sa * cb;
-	m[0][2] = sa * sb * cr + ca * sr;
-	m[0][3] = 0;
-	m[1][0] = ca * sb * sr + sa * cr;
-	m[1][1] = ca * cb;
-	m[1][2] = -ca * sb * cr + sa * sr;
-	m[1][3] = 0;
-	m[2][0] = -cb * sr;
-	m[2][1] = sb;
-	m[2][2] = cb * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = -sa * sb * sr + ca * cr; m[0][1] = -sa * cb; m[0][2] = sa * sb * cr + ca * sr;  m[0][3] = 0;
+	m[1][0] = ca * sb * sr + sa * cr;  m[1][1] = ca * cb;  m[1][2] = -ca * sb * cr + sa * sr; m[1][3] = 0;
+	m[2][0] = -cb * sr;                m[2][1] = sb;       m[2][2] = cb * cr;                 m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;        m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_ZYX(FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_ZYX(FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3606,25 +3468,13 @@ FX_VOID FX_RotEuler_ZYX(FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, Matri
 	FX_SIN_COS_DEG(y_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(x_dgr, &sr, &cr);
 
-	m[0][0] = ca * cb;
-	m[0][1] = ca * sb * sr - sa * cr;
-	m[0][2] = ca * sb * cr + sa * sr;
-	m[0][3] = 0;
-	m[1][0] = sa * cb;
-	m[1][1] = sa * sb * sr + ca * cr;
-	m[1][2] = sa * sb * cr - ca * sr;
-	m[1][3] = 0;
-	m[2][0] = -sb;
-	m[2][1] = cb * sr;
-	m[2][2] = cb * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = ca * cb; m[0][1] = ca * sb * sr - sa * cr;  m[0][2] = ca * sb * cr + sa * sr;  m[0][3] = 0;
+	m[1][0] = sa * cb; m[1][1] = sa * sb * sr + ca * cr;  m[1][2] = sa * sb * cr - ca * sr;  m[1][3] = 0;
+	m[2][0] = -sb;     m[2][1] = cb * sr;                 m[2][2] = cb * cr;                 m[2][3] = 0;
+	m[3][0] = 0;       m[3][1] = 0;                       m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_XYX(FX_DOUBLE x1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x2_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_XYX(FX_DOUBLE x1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3633,25 +3483,13 @@ FX_VOID FX_RotEuler_XYX(FX_DOUBLE x1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x2_dgr, Mat
 	FX_SIN_COS_DEG(y_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(x2_dgr, &sr, &cr);
 
-	m[0][0] = cb;
-	m[0][1] = sb * sr;
-	m[0][2] = sb * cr;
-	m[0][3] = 0;
-	m[1][0] = sa * sb;
-	m[1][1] = -sa * cb * sr + ca * cr;
-	m[1][2] = -sa * cb * cr - ca * sr;
-	m[1][3] = 0;
-	m[2][0] = -ca * sb;
-	m[2][1] = ca * cb * sr + sa * cr;
-	m[2][2] = ca * cb * cr - sa * sr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = cb;       m[0][1] = sb * sr;                 m[0][2] = sb * cr;                 m[0][3] = 0;
+	m[1][0] = sa * sb;  m[1][1] = -sa * cb * sr + ca * cr; m[1][2] = -sa * cb * cr - ca * sr; m[1][3] = 0;
+	m[2][0] = -ca * sb; m[2][1] = ca * cb * sr + sa * cr;  m[2][2] = ca * cb * cr - sa * sr;  m[2][3] = 0;
+	m[3][0] = 0;        m[3][1] = 0;                       m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_XZX(FX_DOUBLE x1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x2_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_XZX(FX_DOUBLE x1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3660,25 +3498,13 @@ FX_VOID FX_RotEuler_XZX(FX_DOUBLE x1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x2_dgr, Mat
 	FX_SIN_COS_DEG(z_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(x2_dgr, &sr, &cr);
 
-	m[0][0] = cb;
-	m[0][1] = -sb * cr;
-	m[0][2] = sb * sr;
-	m[0][3] = 0;
-	m[1][0] = ca * sb;
-	m[1][1] = ca * cb * cr - sa * sr;
-	m[1][2] = -ca * cb * sr - sa * cr;
-	m[1][3] = 0;
-	m[2][0] = sa * sb;
-	m[2][1] = sa * cb * cr + ca * sr;
-	m[2][2] = -sa * cb * sr + ca * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = cb;      m[0][1] = -sb * cr;               m[0][2] = sb * sr;                 m[0][3] = 0;
+	m[1][0] = ca * sb; m[1][1] = ca * cb * cr - sa * sr; m[1][2] = -ca * cb * sr - sa * cr; m[1][3] = 0;
+	m[2][0] = sa * sb; m[2][1] = sa * cb * cr + ca * sr; m[2][2] = -sa * cb * sr + ca * cr; m[2][3] = 0;
+	m[3][0] = 0;       m[3][1] = 0;                      m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_YXY(FX_DOUBLE y1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y2_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_YXY(FX_DOUBLE y1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3687,25 +3513,13 @@ FX_VOID FX_RotEuler_YXY(FX_DOUBLE y1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y2_dgr, Mat
 	FX_SIN_COS_DEG(x_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(y2_dgr, &sr, &cr);
 
-	m[0][0] = -sa * cb * sr + ca * cr;
-	m[0][1] = sa * sb;
-	m[0][2] = sa * cb * cr + ca * sr;
-	m[0][3] = 0;
-	m[1][0] = sb * sr;
-	m[1][1] = cb;
-	m[1][2] = -sb * cr;
-	m[1][3] = 0;
-	m[2][0] = -ca * cb * sr - sa * cr;
-	m[2][1] = ca * sb;
-	m[2][2] = ca * cb * cr - sa * sr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = -sa * cb * sr + ca * cr; m[0][1] = sa * sb; m[0][2] = sa * cb * cr + ca * sr; m[0][3] = 0;
+	m[1][0] = sb * sr;                 m[1][1] = cb;      m[1][2] = -sb * cr;               m[1][3] = 0;
+	m[2][0] = -ca * cb * sr - sa * cr; m[2][1] = ca * sb; m[2][2] = ca * cb * cr - sa * sr; m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;       m[3][2] = 0;                      m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_YZY(FX_DOUBLE y1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y2_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_YZY(FX_DOUBLE y1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3714,25 +3528,13 @@ FX_VOID FX_RotEuler_YZY(FX_DOUBLE y1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y2_dgr, Mat
 	FX_SIN_COS_DEG(z_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(y2_dgr, &sr, &cr);
 
-	m[0][0] = ca * cb * cr - sa * sr;
-	m[0][1] = -ca * sb;
-	m[0][2] = ca * cb * sr + sa * cr;
-	m[0][3] = 0;
-	m[1][0] = sb * cr;
-	m[1][1] = cb;
-	m[1][2] = sb * sr;
-	m[1][3] = 0;
-	m[2][0] = -sa * cb * cr - ca * sr;
-	m[2][1] = sa * sb;
-	m[2][2] = -sa * cb * sr + ca * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = ca * cb * cr - sa * sr;  m[0][1] = -ca * sb; m[0][2] = ca * cb * sr + sa * cr;  m[0][3] = 0;
+	m[1][0] = sb * cr;                 m[1][1] = cb;       m[1][2] = sb * sr;                 m[1][3] = 0;
+	m[2][0] = -sa * cb * cr - ca * sr; m[2][1] = sa * sb;  m[2][2] = -sa * cb * sr + ca * cr; m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;        m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_ZXZ(FX_DOUBLE z1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z2_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_ZXZ(FX_DOUBLE z1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3741,25 +3543,13 @@ FX_VOID FX_RotEuler_ZXZ(FX_DOUBLE z1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z2_dgr, Mat
 	FX_SIN_COS_DEG(x_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(z2_dgr, &sr, &cr);
 
-	m[0][0] = -sa * cb * sr + ca * cr;
-	m[0][1] = -sa * cb * cr - ca * sr;
-	m[0][2] = sa * sb;
-	m[0][3] = 0;
-	m[1][0] = ca * cb * sr + sa * cr;
-	m[1][1] = ca * cb * cr - sa * sr;
-	m[1][2] = -ca * sb;
-	m[1][3] = 0;
-	m[2][0] = sb * sr;
-	m[2][1] = cr * sb;
-	m[2][2] = cb;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = -sa * cb * sr + ca * cr; m[0][1] = -sa * cb * cr - ca * sr; m[0][2] = sa * sb;  m[0][3] = 0;
+	m[1][0] = ca * cb * sr + sa * cr;  m[1][1] = ca * cb * cr - sa * sr;  m[1][2] = -ca * sb; m[1][3] = 0;
+	m[2][0] = sb * sr;                 m[2][1] = cr * sb;                 m[2][2] = cb;       m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;                       m[3][2] = 0;        m[3][3] = 1;
 }
 
-FX_VOID FX_RotEuler_ZYZ(FX_DOUBLE z1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z2_dgr, Matrix4 m)
+FX_VOID  FX_RotEuler_ZYZ(FX_DOUBLE z1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3768,26 +3558,14 @@ FX_VOID FX_RotEuler_ZYZ(FX_DOUBLE z1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z2_dgr, Mat
 	FX_SIN_COS_DEG(y_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(z2_dgr, &sr, &cr);
 
-	m[0][0] = ca * cb * cr - sa * sr;
-	m[0][1] = -ca * cb * sr - sa * cr;
-	m[0][2] = ca * sb;
-	m[0][3] = 0;
-	m[1][0] = sa * cb * cr + ca * sr;
-	m[1][1] = -sa * cb * sr + ca * cr;
-	m[1][2] = sa * sb;
-	m[1][3] = 0;
-	m[2][0] = -sb * cr;
-	m[2][1] = sr * sb;
-	m[2][2] = cb;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = ca * cb * cr - sa * sr; m[0][1] = -ca * cb * sr - sa * cr; m[0][2] = ca * sb; m[0][3] = 0;
+	m[1][0] = sa * cb * cr + ca * sr; m[1][1] = -sa * cb * sr + ca * cr; m[1][2] = sa * sb; m[1][3] = 0;
+	m[2][0] = -sb * cr;               m[2][1] = sr * sb;                 m[2][2] = cb;      m[2][3] = 0;
+	m[3][0] = 0;                      m[3][1] = 0;                       m[3][2] = 0;       m[3][3] = 1;
 }
 
 //////////////////Rotation matrix of fixed coordinate system
-FX_VOID FX_RotFixed_XYZ(FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_XYZ(FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3796,25 +3574,13 @@ FX_VOID FX_RotFixed_XYZ(FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, Matri
 	FX_SIN_COS_DEG(y_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(x_dgr, &sr, &cr);
 
-	m[0][0] = ca * cb;
-	m[0][1] = ca * sb * sr - sa * cr;
-	m[0][2] = ca * sb * cr + sa * sr;
-	m[0][3] = 0;
-	m[1][0] = sa * cb;
-	m[1][1] = sa * sb * sr + ca * cr;
-	m[1][2] = sa * sb * cr - ca * sr;
-	m[1][3] = 0;
-	m[2][0] = -sb;
-	m[2][1] = cb * sr;
-	m[2][2] = cb * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = ca * cb; m[0][1] = ca * sb * sr - sa * cr; m[0][2] = ca * sb * cr + sa * sr; m[0][3] = 0;
+	m[1][0] = sa * cb; m[1][1] = sa * sb * sr + ca * cr; m[1][2] = sa * sb * cr - ca * sr; m[1][3] = 0;
+	m[2][0] = -sb;     m[2][1] = cb * sr;                m[2][2] = cb * cr;                m[2][3] = 0;
+	m[3][0] = 0;       m[3][1] = 0;                      m[3][2] = 0;                      m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_XZY(FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_XZY(FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3823,25 +3589,13 @@ FX_VOID FX_RotFixed_XZY(FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, Matri
 	FX_SIN_COS_DEG(z_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(x_dgr, &sr, &cr);
 
-	m[0][0] = ca * cb;
-	m[0][1] = -ca * sb * cr + sa * sr;
-	m[0][2] = ca * sb * sr + sa * cr;
-	m[0][3] = 0;
-	m[1][0] = sb;
-	m[1][1] = cb * cr;
-	m[1][2] = -cb * sr;
-	m[1][3] = 0;
-	m[2][0] = -sa * cb;
-	m[2][1] = sa * sb * cr + ca * sr;
-	m[2][2] = -sa * sb * sr + ca * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = ca * cb;  m[0][1] = -ca * sb * cr + sa * sr; m[0][2] = ca * sb * sr + sa * cr;  m[0][3] = 0;
+	m[1][0] = sb;       m[1][1] = cb * cr;                 m[1][2] = -cb * sr;                m[1][3] = 0;
+	m[2][0] = -sa * cb; m[2][1] = sa * sb * cr + ca * sr;  m[2][2] = -sa * sb * sr + ca * cr; m[2][3] = 0;
+	m[3][0] = 0;        m[3][1] = 0;                       m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_YXZ(FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_YXZ(FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3850,25 +3604,13 @@ FX_VOID FX_RotFixed_YXZ(FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z_dgr, Matri
 	FX_SIN_COS_DEG(x_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(y_dgr, &sr, &cr);
 
-	m[0][0] = -sa * sb * sr + ca * cr;
-	m[0][1] = -sa * cb;
-	m[0][2] = sa * sb * cr + ca * sr;
-	m[0][3] = 0;
-	m[1][0] = ca * sb * sr + sa * cr;
-	m[1][1] = ca * cb;
-	m[1][2] = -ca * sb * cr + sa * sr;
-	m[1][3] = 0;
-	m[2][0] = -cb * sr;
-	m[2][1] = sb;
-	m[2][2] = cb * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = -sa * sb * sr + ca * cr; m[0][1] = -sa * cb; m[0][2] = sa * sb * cr + ca * sr;  m[0][3] = 0;
+	m[1][0] = ca * sb * sr + sa * cr;  m[1][1] = ca * cb;  m[1][2] = -ca * sb * cr + sa * sr; m[1][3] = 0;
+	m[2][0] = -cb * sr;                m[2][1] = sb;       m[2][2] = cb * cr;                 m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;        m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_YZX(FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_YZX(FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3877,25 +3619,13 @@ FX_VOID FX_RotFixed_YZX(FX_DOUBLE y_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, Matri
 	FX_SIN_COS_DEG(z_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(y_dgr, &sr, &cr);
 
-	m[0][0] = cb * cr;
-	m[0][1] = -sb;
-	m[0][2] = cb * sr;
-	m[0][3] = 0;
-	m[1][0] = ca * sb * cr + sa * sr;
-	m[1][1] = ca * cb;
-	m[1][2] = ca * sb * sr - sa * cr;
-	m[1][3] = 0;
-	m[2][0] = sa * sb * cr - ca * sr;
-	m[2][1] = sa * cb;
-	m[2][2] = sa * sb * sr + ca * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = cb * cr;                m[0][1] = -sb;     m[0][2] = cb * sr;                m[0][3] = 0;
+	m[1][0] = ca * sb * cr + sa * sr; m[1][1] = ca * cb; m[1][2] = ca * sb * sr - sa * cr; m[1][3] = 0;
+	m[2][0] = sa * sb * cr - ca * sr; m[2][1] = sa * cb; m[2][2] = sa * sb * sr + ca * cr; m[2][3] = 0;
+	m[3][0] = 0;                      m[3][1] = 0;       m[3][2] = 0;                      m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_ZXY(FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_ZXY(FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3904,25 +3634,13 @@ FX_VOID FX_RotFixed_ZXY(FX_DOUBLE z_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y_dgr, Matri
 	FX_SIN_COS_DEG(x_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(z_dgr, &sr, &cr);
 
-	m[0][0] = sa * sb * sr + ca * cr;
-	m[0][1] = sa * sb * cr - ca * sr;
-	m[0][2] = sa * cb;
-	m[0][3] = 0;
-	m[1][0] = cb * sr;
-	m[1][1] = cb * cr;
-	m[1][2] = -sb;
-	m[1][3] = 0;
-	m[2][0] = ca * sb * sr - sa * cr;
-	m[2][1] = ca * sb * cr + sa * sr;
-	m[2][2] = ca * cb;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = sa * sb * sr + ca * cr; m[0][1] = sa * sb * cr - ca * sr; m[0][2] = sa * cb; m[0][3] = 0;
+	m[1][0] = cb * sr;                m[1][1] = cb * cr;                m[1][2] = -sb;     m[1][3] = 0;
+	m[2][0] = ca * sb * sr - sa * cr; m[2][1] = ca * sb * cr + sa * sr; m[2][2] = ca * cb; m[2][3] = 0;
+	m[3][0] = 0;                      m[3][1] = 0;                      m[3][2] = 0;       m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_ZYX(FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_ZYX(FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3931,25 +3649,13 @@ FX_VOID FX_RotFixed_ZYX(FX_DOUBLE z_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x_dgr, Matri
 	FX_SIN_COS_DEG(y_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(z_dgr, &sr, &cr);
 
-	m[0][0] = cb * cr;
-	m[0][1] = -cb * sr;
-	m[0][2] = sb;
-	m[0][3] = 0;
-	m[1][0] = sa * sb * cr + ca * sr;
-	m[1][1] = -sa * sb * sr + ca * cr;
-	m[1][2] = -sa * cb;
-	m[1][3] = 0;
-	m[2][0] = -ca * sb * cr + sa * sr;
-	m[2][1] = ca * sb * sr + sa * cr;
-	m[2][2] = ca * cb;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = cb * cr;                 m[0][1] = -cb * sr;                m[0][2] = sb;       m[0][3] = 0;
+	m[1][0] = sa * sb * cr + ca * sr;  m[1][1] = -sa * sb * sr + ca * cr; m[1][2] = -sa * cb; m[1][3] = 0;
+	m[2][0] = -ca * sb * cr + sa * sr; m[2][1] = ca * sb * sr + sa * cr;  m[2][2] = ca * cb;  m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;                       m[3][2] = 0;        m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_XYX(FX_DOUBLE x1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x2_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_XYX(FX_DOUBLE x1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3958,25 +3664,13 @@ FX_VOID FX_RotFixed_XYX(FX_DOUBLE x1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE x2_dgr, Mat
 	FX_SIN_COS_DEG(y_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(x1_dgr, &sr, &cr);
 
-	m[0][0] = cb;
-	m[0][1] = sb * sr;
-	m[0][2] = sb * cr;
-	m[0][3] = 0;
-	m[1][0] = sa * sb;
-	m[1][1] = -sa * cb * sr + ca * cr;
-	m[1][2] = -sa * cb * cr - ca * sr;
-	m[1][3] = 0;
-	m[2][0] = -ca * sb;
-	m[2][1] = ca * cb * sr + sa * cr;
-	m[2][2] = ca * cb * cr - sa * sr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = cb;       m[0][1] = sb * sr;                 m[0][2] = sb * cr;                 m[0][3] = 0;
+	m[1][0] = sa * sb;  m[1][1] = -sa * cb * sr + ca * cr; m[1][2] = -sa * cb * cr - ca * sr; m[1][3] = 0;
+	m[2][0] = -ca * sb; m[2][1] = ca * cb * sr + sa * cr;  m[2][2] = ca * cb * cr - sa * sr;  m[2][3] = 0;
+	m[3][0] = 0;        m[3][1] = 0;                       m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_XZX(FX_DOUBLE x1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x2_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_XZX(FX_DOUBLE x1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -3985,25 +3679,13 @@ FX_VOID FX_RotFixed_XZX(FX_DOUBLE x1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE x2_dgr, Mat
 	FX_SIN_COS_DEG(z_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(x1_dgr, &sr, &cr);
 
-	m[0][0] = cb;
-	m[0][1] = -sb * cr;
-	m[0][2] = sb * sr;
-	m[0][3] = 0;
-	m[1][0] = ca * sb;
-	m[1][1] = ca * cb * cr - sa * sr;
-	m[1][2] = -ca * cb * sr - sa * cr;
-	m[1][3] = 0;
-	m[2][0] = sa * sb;
-	m[2][1] = sa * cb * cr + ca * sr;
-	m[2][2] = -sa * cb * sr + ca * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = cb;      m[0][1] = -sb * cr;               m[0][2] = sb * sr;                 m[0][3] = 0;
+	m[1][0] = ca * sb; m[1][1] = ca * cb * cr - sa * sr; m[1][2] = -ca * cb * sr - sa * cr; m[1][3] = 0;
+	m[2][0] = sa * sb; m[2][1] = sa * cb * cr + ca * sr; m[2][2] = -sa * cb * sr + ca * cr; m[2][3] = 0;
+	m[3][0] = 0;       m[3][1] = 0;                      m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_YXY(FX_DOUBLE y1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y2_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_YXY(FX_DOUBLE y1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -4012,25 +3694,13 @@ FX_VOID FX_RotFixed_YXY(FX_DOUBLE y1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE y2_dgr, Mat
 	FX_SIN_COS_DEG(x_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(y1_dgr, &sr, &cr);
 
-	m[0][0] = -sa * cb * sr + ca * cr;
-	m[0][1] = sa * sb;
-	m[0][2] = sa * cb * cr + ca * sr;
-	m[0][3] = 0;
-	m[1][0] = sb * sr;
-	m[1][1] = cb;
-	m[1][2] = -sb * cr;
-	m[1][3] = 0;
-	m[2][0] = -ca * cb * sr - sa * cr;
-	m[2][1] = ca * sb;
-	m[2][2] = ca * cb * cr - sa * sr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = -sa * cb * sr + ca * cr; m[0][1] = sa * sb; m[0][2] = sa * cb * cr + ca * sr; m[0][3] = 0;
+	m[1][0] = sb * sr;                 m[1][1] = cb;      m[1][2] = -sb * cr;               m[1][3] = 0;
+	m[2][0] = -ca * cb * sr - sa * cr; m[2][1] = ca * sb; m[2][2] = ca * cb * cr - sa * sr; m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;       m[3][2] = 0;                      m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_YZY(FX_DOUBLE y1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y2_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_YZY(FX_DOUBLE y1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -4039,25 +3709,13 @@ FX_VOID FX_RotFixed_YZY(FX_DOUBLE y1_dgr, FX_DOUBLE z_dgr, FX_DOUBLE y2_dgr, Mat
 	FX_SIN_COS_DEG(z_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(y1_dgr, &sr, &cr);
 
-	m[0][0] = ca * cb * cr - sa * sr;
-	m[0][1] = -ca * sb;
-	m[0][2] = ca * cb * sr + sa * cr;
-	m[0][3] = 0;
-	m[1][0] = sb * cr;
-	m[1][1] = cb;
-	m[1][2] = sb * sr;
-	m[1][3] = 0;
-	m[2][0] = -sa * cb * cr - ca * sr;
-	m[2][1] = sa * sb;
-	m[2][2] = -sa * cb * sr + ca * cr;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = ca * cb * cr - sa * sr;  m[0][1] = -ca * sb; m[0][2] = ca * cb * sr + sa * cr;  m[0][3] = 0;
+	m[1][0] = sb * cr;                 m[1][1] = cb;       m[1][2] = sb * sr;                 m[1][3] = 0;
+	m[2][0] = -sa * cb * cr - ca * sr; m[2][1] = sa * sb;  m[2][2] = -sa * cb * sr + ca * cr; m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;        m[3][2] = 0;                       m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_ZXZ(FX_DOUBLE z1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z2_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_ZXZ(FX_DOUBLE z1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -4066,25 +3724,13 @@ FX_VOID FX_RotFixed_ZXZ(FX_DOUBLE z1_dgr, FX_DOUBLE x_dgr, FX_DOUBLE z2_dgr, Mat
 	FX_SIN_COS_DEG(x_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(z1_dgr, &sr, &cr);
 
-	m[0][0] = -sa * cb * sr + ca * cr;
-	m[0][1] = -sa * cb * cr - ca * sr;
-	m[0][2] = sa * sb;
-	m[0][3] = 0;
-	m[1][0] = ca * cb * sr + sa * cr;
-	m[1][1] = ca * cb * cr - sa * sr;
-	m[1][2] = -ca * sb;
-	m[1][3] = 0;
-	m[2][0] = sb * sr;
-	m[2][1] = cr * sb;
-	m[2][2] = cb;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = -sa * cb * sr + ca * cr; m[0][1] = -sa * cb * cr - ca * sr; m[0][2] = sa * sb;  m[0][3] = 0;
+	m[1][0] = ca * cb * sr + sa * cr;  m[1][1] = ca * cb * cr - sa * sr;  m[1][2] = -ca * sb; m[1][3] = 0;
+	m[2][0] = sb * sr;                 m[2][1] = cr * sb;                 m[2][2] = cb;       m[2][3] = 0;
+	m[3][0] = 0;                       m[3][1] = 0;                       m[3][2] = 0;        m[3][3] = 1;
 }
 
-FX_VOID FX_RotFixed_ZYZ(FX_DOUBLE z1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z2_dgr, Matrix4 m)
+FX_VOID  FX_RotFixed_ZYZ(FX_DOUBLE z1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z2_dgr, Matrix4 m)
 {
 	FX_DOUBLE sa, ca;
 	FX_DOUBLE sb, cb;
@@ -4093,20 +3739,8 @@ FX_VOID FX_RotFixed_ZYZ(FX_DOUBLE z1_dgr, FX_DOUBLE y_dgr, FX_DOUBLE z2_dgr, Mat
 	FX_SIN_COS_DEG(y_dgr, &sb, &cb);
 	FX_SIN_COS_DEG(z2_dgr, &sr, &cr);
 
-	m[0][0] = ca * cb * cr - sa * sr;
-	m[0][1] = -ca * cb * sr - sa * cr;
-	m[0][2] = ca * sb;
-	m[0][3] = 0;
-	m[1][0] = sa * cb * cr + ca * sr;
-	m[1][1] = -sa * cb * sr + ca * cr;
-	m[1][2] = sa * sb;
-	m[1][3] = 0;
-	m[2][0] = -sb * cr;
-	m[2][1] = sr * sb;
-	m[2][2] = cb;
-	m[2][3] = 0;
-	m[3][0] = 0;
-	m[3][1] = 0;
-	m[3][2] = 0;
-	m[3][3] = 1;
+	m[0][0] = ca * cb * cr - sa * sr; m[0][1] = -ca * cb * sr - sa * cr; m[0][2] = ca * sb; m[0][3] = 0;
+	m[1][0] = sa * cb * cr + ca * sr; m[1][1] = -sa * cb * sr + ca * cr; m[1][2] = sa * sb; m[1][3] = 0;
+	m[2][0] = -sb * cr;               m[2][1] = sr * sb;                 m[2][2] = cb;      m[2][3] = 0;
+	m[3][0] = 0;                      m[3][1] = 0;                       m[3][2] = 0;       m[3][3] = 1;
 }

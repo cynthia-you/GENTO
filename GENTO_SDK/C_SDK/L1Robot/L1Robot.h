@@ -1147,8 +1147,8 @@ extern "C"
      * @param[in] robot_serial Arm index. The parameter is currently reserved by this API.
      * @param[in] start_joints Start joint values, length 7.
      * @param[in] end_joints Target joint values, length 7.
-     * @param[in] vel_ratio Velocity ratio.
-     * @param[in] acc_ratio Acceleration ratio.
+     * @param[in] vel_ratio Velocity ratio. Range `(0, 1]`.
+     * @param[in] acc_ratio Acceleration ratio. Range `(0, 1]`
      * @param[in] freq Path sampling frequency.
      * @param[in,out] point_set_handle Path point set handle created by
      *                                 `FX_L0_CPointSet_Create`.

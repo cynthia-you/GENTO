@@ -167,6 +167,7 @@ public:
 
 	/** @brief Destroy the motion planner. */
 	~CFxPln();
+	FX_INT32 GetLastError() const;
 
 protected:
 	CAxisPln m_AxisPln;
@@ -175,6 +176,7 @@ protected:
 
 	CFxKineIF m_Kine_Left_Arm; // for dual arm cartesian space motion planning
 	CFxKineIF m_Kine_Right_Arm;
+	FX_INT32 m_LastError;
 };
 
 #endif
